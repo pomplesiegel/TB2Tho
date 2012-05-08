@@ -226,12 +226,7 @@ OSStatus MyAURenderCallback (
             //Bufdata ~4000, Full scale = 32768
                 
                 //bufData[i] = bufData[i]*30;
-                
-<<<<<<< HEAD
-              //  NSLog(@"%i",bufData[i]);
-=======
-                //NSLog(@"%i",bufData[i]);
->>>>>>> LINEAR
+
                 
                 fBuffer[i] = LUT[bufData[i]+32768];
                 
