@@ -28,6 +28,8 @@
 		CD33720A153E64DD004CBCCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371EB153E64DD004CBCCB /* Foundation.framework */; };
 		CD337212153E64DD004CBCCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD337210153E64DD004CBCCB /* InfoPlist.strings */; };
 		CD337215153E64DD004CBCCB /* TrashBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD337214153E64DD004CBCCB /* TrashBoxTests.m */; };
+		CDA193B91558DDEB008740BB /* simpleFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDA193B51558DDEB008740BB /* simpleFFT.cpp */; };
+		CDA193BA1558DDEB008740BB /* SpectrumAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDA193B71558DDEB008740BB /* SpectrumAnalysis.cpp */; };
 		CDECC62E153FBE35005640A7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDECC62D153FBE35005640A7 /* CoreAudio.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,10 @@
 		CD337211153E64DD004CBCCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CD337213153E64DD004CBCCB /* TrashBoxTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrashBoxTests.h; sourceTree = "<group>"; };
 		CD337214153E64DD004CBCCB /* TrashBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrashBoxTests.m; sourceTree = "<group>"; };
+		CDA193B51558DDEB008740BB /* simpleFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleFFT.cpp; sourceTree = "<group>"; };
+		CDA193B61558DDEB008740BB /* simpleFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleFFT.h; sourceTree = "<group>"; };
+		CDA193B71558DDEB008740BB /* SpectrumAnalysis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpectrumAnalysis.cpp; sourceTree = "<group>"; };
+		CDA193B81558DDEB008740BB /* SpectrumAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectrumAnalysis.h; sourceTree = "<group>"; };
 		CDECC62D153FBE35005640A7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		CDECC62F153FBE3E005640A7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -149,6 +155,10 @@
 				CD3371FC153E64DD004CBCCB /* ViewController.mm */,
 				8AAF9940153F9AD900E0EB75 /* AudioController.h */,
 				8AAF9941153F9AD900E0EB75 /* AudioController.mm */,
+				CDA193B51558DDEB008740BB /* simpleFFT.cpp */,
+				CDA193B61558DDEB008740BB /* simpleFFT.h */,
+				CDA193B71558DDEB008740BB /* SpectrumAnalysis.cpp */,
+				CDA193B81558DDEB008740BB /* SpectrumAnalysis.h */,
 				8A6E3AA91548D75E0029B431 /* Draw2D.h */,
 				8A6E3AAA1548D75E0029B431 /* Draw2D.m */,
 				CD3371FE153E64DD004CBCCB /* ViewController.xib */,
@@ -303,6 +313,8 @@
 				CD3371FD153E64DD004CBCCB /* ViewController.mm in Sources */,
 				8AAF9942153F9AD900E0EB75 /* AudioController.mm in Sources */,
 				8A6E3AAB1548D75E0029B431 /* Draw2D.m in Sources */,
+				CDA193B91558DDEB008740BB /* simpleFFT.cpp in Sources */,
+				CDA193BA1558DDEB008740BB /* SpectrumAnalysis.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
