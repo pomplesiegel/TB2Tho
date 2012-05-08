@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AudioController.h"
 
+
 @implementation ViewController
 @synthesize gainSlider, effectOnOff, smoothing1, smoothing2;
 @synthesize whichEffect;
@@ -63,9 +64,11 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
     daController = [[AudioController alloc] init];
     graphView = [[Draw2D alloc] init];
+    mySine = [[SineWaveGen alloc] init];
     float *LUTpointer;
     LUTpointer = [graphView getLUTPointer];
     [daController setLUTPointer:LUTpointer];
+    [mySine generateSineWave];
     
 }
 

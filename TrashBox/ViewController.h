@@ -11,6 +11,7 @@
 #import <AudioUnit/AudioUnit.h>
 #import "AudioController.h"
 #import "Draw2D.h"
+#import "SineWaveGen.h"
 
 //@class AudioController;
 
@@ -23,7 +24,8 @@
     AudioController *daController;      //The audio controller that does the work
     UISwitch *smoothing1;               //Smooths the drawing in one way
     UISwitch *smoothing2;               //Smooths it out in another way
-    Draw2D *graphView;                  //The actual graph view on the controller
+    Draw2D *graphView;             //The actual graph view on the controller
+    SineWaveGen *mySine;
     
 }
 
