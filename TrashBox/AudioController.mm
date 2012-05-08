@@ -14,6 +14,7 @@
 @synthesize onOrOff, whichEffect;
 @synthesize LUTpointer;
 
+
 //DECLARE CONSTANT HERE FOR BUFFER SIZE
 
 //Declare our remote unit and effect right off
@@ -210,6 +211,7 @@ OSStatus MyAURenderCallback (
             
             fBuffer[i] = bufData[i];
             
+            
             //If we have effects on AND it chooses the "grit" effect
             if (effectState->effectOnOff && effectState->whichEffect==0)
             {
@@ -264,8 +266,6 @@ OSStatus MyAURenderCallback (
 {
     LUTpointer = pointer;
 }
-
-
 
 //DAN CODE STARTS HERE
 //AudioSessions are used for interrupts, so we'll add them at the end
