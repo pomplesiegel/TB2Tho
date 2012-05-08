@@ -7,7 +7,6 @@
 //
 
 #import "AudioController.h"
-#import "Draw2D.h"
 
 @implementation AudioController
 @synthesize isInit, inputDeviceFound;
