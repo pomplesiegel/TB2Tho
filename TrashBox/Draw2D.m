@@ -22,7 +22,7 @@
 
 //Global variables? FUCK THE POLICE.
 float LUT[bits16];
-CGPoint graph[datapoints];x
+CGPoint graph[datapoints];
 CGPoint points[datapoints*granularity];
 CGPoint averaged[datapoints*granularity];
 CGFloat width;
