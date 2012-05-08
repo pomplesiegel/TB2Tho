@@ -207,13 +207,16 @@ OSStatus MyAURenderCallback (
             //We always have the gain, even if other effects are off -- act as a volume knob
             bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
             
-            for(int j=0; j<2; j=j+2) //Hard coded for effects on left channel
+            
+            fBuffer[i] = bufData[i];
+            
+            for(int j=0; j<inNumberFrames; j=j+2) //Hard coded for effects on only LEFT channel. Extracted from interleaved samples 
             {
                 
                 
             }
 
-            
+             
             fBuffer[i] = bufData[i];
             
             //If we have effects on AND it chooses the "grit" effect
