@@ -17,11 +17,13 @@
 #define averagepoints2 75
 #define bits16 65536
 #define shift16 32768
+#define MAXVAL 32768
 
 @implementation Draw2D
 
 //Global variables? FUCK THE POLICE.
 float lut[bits16];
+float lutfake[bits16];
 CGPoint graph[datapoints];
 CGPoint points[datapoints*granularity];
 CGPoint averaged[datapoints*granularity];
@@ -55,7 +57,7 @@ CGContextRef context;
 
 - (float *)getLUTPointer
 {
-    return lut;
+    return lutfake;
 }
 
 /*
@@ -86,6 +88,8 @@ CGContextRef context;
     CGContextStrokePath(context);
     CGContextBeginPath(context);
     
+    
+    
     //initialize the graph variable to a linear function
     if(setup == false)
     {  
@@ -97,6 +101,9 @@ CGContextRef context;
             CGFloat vert = width/datapoints*(i+0.5);
             graph[i].x = vert;
             graph[i].y = height - (height/width * (i+1) * divisor);
+        }
+        for(int i=0; i<bits16; i++) {
+            lutfake[i] = i-shift16;
         }
         setup = true;
     }
@@ -245,23 +252,23 @@ CGContextRef context;
             
             //must account for boundary conditionsß
             if(y < 0.0f) {
-                lut[shift16+count2] = 1.0f;
-                lut[shift16-count2] = -1.0f;
+                lut[shift16+count2] = 1.0f * (MAXVAL-1);
+                lut[shift16-count2] = -1.0f * MAXVAL;
             }
             else if (pi.y > height) {
                 lut[shift16+count2] = 0.0f;
                 lut[shift16-count2] = 0.0f;
             }
             else {
-                lut[shift16+count2] = 1 - y / height;
-                lut[shift16-count2] = y/height - 1;
+                lut[shift16+count2] = (1 - y / height)*(MAXVAL-1);
+                lut[shift16-count2] = (y/height - 1)*MAXVAL;
             }
             count2++;
         }
         if(count2 < shift16)
         {
-            lut[shift16+count2] = 1- p2/height;
-            lut[shift16-count2] = p2/height - 1;
+            lut[shift16+count2] = (1- p2/height)*(MAXVAL-1);
+            lut[shift16-count2] = (p2/height - 1)*MAXVAL;
             count2++;
         }
     }
