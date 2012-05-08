@@ -7,14 +7,19 @@
 //
 
 #import "AudioController.h"
+#import "Draw2D.h"
 
 @implementation AudioController
 @synthesize isInit, inputDeviceFound;
 @synthesize onOrOff, whichEffect;
 
+//DECLARE CONSTANT HERE FOR BUFFER SIZE
+
 //Declare our remote unit and effect right off
 AudioUnit remoteIOUnit;
 EffectState effectState; 
+
+float* fBuffer = new float[2048]; //GLOBAL, BUT I DON'T CARE
 
 -(id)init
 {
@@ -37,6 +42,9 @@ EffectState effectState;
         setupAudioSessionError = AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
         NSAssert (setupAudioSessionError == noErr, @"Couldn't set audio session property");
         
+
+        
+        
         //Get the iPad's sample rate
         UInt32 f64PropertySize = sizeof(Float64);
         Float64 hardwareSampleRate = kAudioSessionProperty_CurrentHardwareSampleRate;
@@ -44,6 +52,17 @@ EffectState effectState;
         setupAudioSessionError = AudioSessionGetProperty(kAudioSessionProperty_CurrentHardwareSampleRate, &f64PropertySize, &hardwareSampleRate);
         NSAssert(setupAudioSessionError == noErr, @"Couldn't get the iPad's sample rate");
         NSLog(@"The iPad's sample rate is %f", hardwareSampleRate);
+        
+        // set preferred buffer size
+        Float32 preferredBufferSize = .001; // in seconds = 1ms latency preferred
+        setupAudioSessionError = AudioSessionSetProperty(kAudioSessionProperty_PreferredHardwareIOBufferDuration, sizeof(preferredBufferSize), &preferredBufferSize);
+        
+        // get actuall buffer size
+        Float32 audioBufferSize;
+        UInt32 size = sizeof (audioBufferSize);
+        setupAudioSessionError = AudioSessionGetProperty(kAudioSessionProperty_CurrentHardwareIOBufferDuration, &size, &audioBufferSize);
+        NSLog(@"latency is %f ms",audioBufferSize*1000); //announce real buffer size
+        setupAudioSessionError = AudioSessionSetActive(true);
         
         //Describe the audio unit
         AudioComponentDescription compDesc;
@@ -174,7 +193,6 @@ OSStatus MyAURenderCallback (
     UInt32 bus1 = 1;
     renderErr = AudioUnitRender(rioUnit, ioActionFlags, inTimeStamp, bus1, inNumberFrames, ioData);
         
-    float* fBuffer = new float[1024]; //BAD, HARD CODED
     
     for (int bufCount=0; bufCount<ioData->mNumberBuffers; bufCount++) //for all buffers
     {
@@ -200,6 +218,8 @@ OSStatus MyAURenderCallback (
 
             }
             
+            
+                        
             /* So the other one would go like
              if (effectState->gainOnOff && effectState->whichEffect==1)
              {
