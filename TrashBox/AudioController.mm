@@ -14,7 +14,6 @@
 
 float* LUT;
 
-
 //DECLARE CONSTANT HERE FOR BUFFER SIZE
 
 //Declare our remote unit and effect right off
@@ -211,7 +210,6 @@ OSStatus MyAURenderCallback (
             
             fBuffer[i] = bufData[i];
             
-            
             //If we have effects on AND it chooses the "grit" effect
             if (effectState->effectOnOff && effectState->whichEffect==0)
             {
@@ -221,17 +219,24 @@ OSStatus MyAURenderCallback (
 
             }
             
-            
-                        
-            /* So the other one would go like
-             if (effectState->gainOnOff && effectState->whichEffect==1)
-             {
-                do things with the drawing
-             }
-            */
-            
-            //NSLog(@"%f",fBuffer[i]);
-                        
+            if(effectState->effectOnOff && effectState->whichEffect==1)
+            {
+                //Graphical LUT
+                
+            //Bufdata ~4000, Full scale = 32768
+                
+                //bufData[i] = bufData[i]*30;
+                
+                NSLog(@"%i",bufData[i]);
+                
+                fBuffer[i] = 3.5*LUT[bufData[i]+32768];
+                
+                bufData[i] = fBuffer[i]*9000;
+                
+               // NSLog(<#NSString *format, ...#>)
+                                
+            }
+                       
             
            // NSLog(@"%f",effectState->gainSliderValue); THIS WILL STOP AUDIO OUTPUT
             
