@@ -26,7 +26,7 @@
     {
         x[i] = sinf(2*M_PI*fundamental*((float)i/Fs));
         
-        NSLog(@"%f",x[i]);
+        //NSLog(@"%f",x[i]); //show sine samples
      
     }
 
