@@ -200,12 +200,19 @@ OSStatus MyAURenderCallback (
 
         SInt16* bufData = (SInt16*)buf.mData;
         
-        for (int i=0; i<buf.mDataByteSize/sizeof(SInt16); i++) //1024 sample buffer, unless changed through initialization
+        for (int i=0; i<buf.mDataByteSize/sizeof(SInt16); i++) //inNumberFrames sample buffer. Interleaved stereo
         { 
             //STILL INTERLEAVED SAMPLES AT THIS POINT
             //This is where the gain happens for each sample
             //We always have the gain, even if other effects are off -- act as a volume knob
             bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
+            
+            for(int j=0; j<2; j=j+2) //Hard coded for effects on left channel
+            {
+                
+                
+            }
+
             
             fBuffer[i] = bufData[i];
             
