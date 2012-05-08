@@ -53,7 +53,7 @@ CGContextRef context;
     return self;
 }
 
-- (float *)getLUTPointer:(id)sender
+- (float *)getLUTPointer
 {
     return lut;
 }
