@@ -121,10 +121,10 @@ CGContextRef context;
     CGContextSetStrokeColorWithColor(context,[UIColor redColor].CGColor);
     CGContextMoveToPoint(context, pi.x, pi.y);
     points[count] = pi;
-    count++;
+    //count++;
+    count = datapoints;
     
     //pre-splining smoothing
-    /*
     if (smoothing == true) {
         for(int i=0; i<datapoints; i++) {
             int j = i - averagepoints/2;
@@ -142,10 +142,14 @@ CGContextRef context;
             averaged[i].y = averaged[i].y / averagepoints;
         }
     }
-    */
+    for(int i = 1; i<datapoints; i++) {
+        pi.x = 0.0f + i;
+        pi.y = height - height/width * i;
+        points[i] = pi;
+    }
     
     //This smooths out the graph my interpolating curves between points
-    for(int i=0; i<datapoints-2; i++) {
+    for(int i=1; i<datapoints-2; i++) {
         CGPoint p0, p1, p2, p3;
         
         //If first index, use mirrored point to help calculate smoothed line
