@@ -57,7 +57,7 @@ CGContextRef context;
 
 - (float *)getLUTPointer
 {
-    return lutfake;
+    return lut;
 }
 
 /*
@@ -100,11 +100,16 @@ CGContextRef context;
             //special x values to allow data points to fall between vertical bars
             CGFloat vert = width/datapoints*(i+0.5);
             graph[i].x = vert;
-            graph[i].y = height - (height/width * (i+1) * divisor);
+            if(i==0) {
+                graph[i].y = height - (height/width * (i+1) * divisor)*0.5;
+            }
+            else {
+                graph[i].y = height - (height/width * (i+1) * divisor);
+            }
         }
-        for(int i=0; i<bits16; i++) {
-            lutfake[i] = i-shift16;
-        }
+        //for(int i=0; i<bits16; i++) {
+        //    lutfake[i] = i-shift16;
+        //}
         setup = true;
     }
     
@@ -119,6 +124,7 @@ CGContextRef context;
     count++;
     
     //pre-splining smoothing
+    /*
     if (smoothing == true) {
         for(int i=0; i<datapoints; i++) {
             int j = i - averagepoints/2;
@@ -136,6 +142,7 @@ CGContextRef context;
             averaged[i].y = averaged[i].y / averagepoints;
         }
     }
+    */
     
     //This smooths out the graph my interpolating curves between points
     for(int i=0; i<datapoints-2; i++) {
