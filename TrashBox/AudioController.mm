@@ -199,24 +199,14 @@ OSStatus MyAURenderCallback (
         AudioBuffer buf = ioData->mBuffers[bufCount]; //copy buffer
 
         SInt16* bufData = (SInt16*)buf.mData;
-        
-        for (int i=0; i<buf.mDataByteSize/sizeof(SInt16); i++) //inNumberFrames sample buffer. Interleaved stereo
+                
+        for (int i=0; i<buf.mDataByteSize/sizeof(SInt16); i++) //inNumberFrames = #Frames in buffer, per channel
         { 
             //STILL INTERLEAVED SAMPLES AT THIS POINT
             //This is where the gain happens for each sample
             //We always have the gain, even if other effects are off -- act as a volume knob
             bufData[i] = bufData[i]*effectState->gainSliderValue; //adjusting indv sample value
             
-            
-            fBuffer[i] = bufData[i];
-            
-            for(int j=0; j<inNumberFrames; j=j+2) //Hard coded for effects on only LEFT channel. Extracted from interleaved samples 
-            {
-                
-                
-            }
-
-             
             fBuffer[i] = bufData[i];
             
             //If we have effects on AND it chooses the "grit" effect
