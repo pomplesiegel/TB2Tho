@@ -18,7 +18,6 @@
 @property bool inputDeviceFound;
 @property bool onOrOff;
 @property (nonatomic) int whichEffect;
-@property (nonatomic) float *LUTpointer;
 
 -(id)init; //initialize
 -(void)setGainValue:(float)val; //Set the gain value
