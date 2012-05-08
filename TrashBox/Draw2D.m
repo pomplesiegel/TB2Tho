@@ -21,8 +21,8 @@
 @implementation Draw2D
 
 //Global variables? FUCK THE POLICE.
-float lut[bits16];
-CGPoint graph[datapoints];
+float LUT[bits16];
+CGPoint graph[datapoints];x
 CGPoint points[datapoints*granularity];
 CGPoint averaged[datapoints*granularity];
 CGFloat width;
@@ -55,7 +55,7 @@ CGContextRef context;
 
 - (float *)getLUTPointer
 {
-    return lut;
+    return LUT;
 }
 
 /*
@@ -221,7 +221,7 @@ CGContextRef context;
     CGContextStrokePath(context);
     
     //interpolate data. THIS IS MESSY AND I WILL FIX -dan
-    lut[shift16] = 0.0f;
+    LUT[shift16] = 0.0f;
     for(int i = 0; i<count && count2 < shift16; i++)
     {
         CGFloat p0, p1, p2, p3, y;
@@ -245,23 +245,23 @@ CGContextRef context;
             
             //must account for boundary conditionsß
             if(y < 0.0f) {
-                lut[shift16+count2] = 1.0f;
-                lut[shift16-count2] = -1.0f;
+                LUT[shift16+count2] = 1.0f;
+                LUT[shift16-count2] = -1.0f;
             }
             else if (pi.y > height) {
-                lut[shift16+count2] = 0.0f;
-                lut[shift16-count2] = 0.0f;
+                LUT[shift16+count2] = 0.0f;
+                LUT[shift16-count2] = 0.0f;
             }
             else {
-                lut[shift16+count2] = 1 - y / height;
-                lut[shift16-count2] = y/height - 1;
+                LUT[shift16+count2] = 1 - y / height;
+                LUT[shift16-count2] = y/height - 1;
             }
             count2++;
         }
         if(count2 < shift16)
         {
-            lut[shift16+count2] = 1- p2/height;
-            lut[shift16-count2] = p2/height - 1;
+            LUT[shift16+count2] = 1- p2/height;
+            LUT[shift16-count2] = p2/height - 1;
             count2++;
         }
     }
