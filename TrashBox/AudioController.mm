@@ -230,7 +230,9 @@ OSStatus MyAURenderCallback (
                 
                 fBuffer[i] = LUT[bufData[i]+32768];
                 
-                bufData[i] = fBuffer[i];
+                bufData[i] = 2*fBuffer[i];
+                
+               // NSLog(@"%i",bufData[i]);
                 
                // NSLog(<#NSString *format, ...#>)
                                 
