@@ -7,12 +7,12 @@
 //
 
 #import "AudioController.h"
-#import "Draw2D.h"
 
 @implementation AudioController
 @synthesize isInit, inputDeviceFound;
 @synthesize onOrOff, whichEffect;
-@synthesize LUTpointer;
+
+float* LUT;
 
 
 //DECLARE CONSTANT HERE FOR BUFFER SIZE
@@ -171,7 +171,7 @@ AudioUnitConnection makeConnection(AudioUnit remoteUnit, AudioUnitElement input,
     connection.sourceAudioUnit = remoteUnit;
     connection.sourceOutputNumber = output;
     connection.destInputNumber = input;
-    
+
     return connection;
 }
 
@@ -264,7 +264,7 @@ OSStatus MyAURenderCallback (
 
 -(void)setLUTPointer:(float*)pointer;
 {
-    LUTpointer = pointer;
+    LUT = pointer;
 }
 
 //DAN CODE STARTS HERE
