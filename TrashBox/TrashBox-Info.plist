@@ -13,6 +13,7 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon-72.png</string>
+		<string>Default@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>edu.tufts.cs.${PRODUCT_NAME:rfc1034identifier}</string>

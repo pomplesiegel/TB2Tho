@@ -29,6 +29,7 @@
 		CD33720A153E64DD004CBCCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371EB153E64DD004CBCCB /* Foundation.framework */; };
 		CD337212153E64DD004CBCCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD337210153E64DD004CBCCB /* InfoPlist.strings */; };
 		CD337215153E64DD004CBCCB /* TrashBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD337214153E64DD004CBCCB /* TrashBoxTests.m */; };
+		CD9879E11559E4D300D9A2B3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9879E01559E4D300D9A2B3 /* Default@2x.png */; };
 		CDA193B91558DDEB008740BB /* simpleFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDA193B51558DDEB008740BB /* simpleFFT.cpp */; };
 		CDA193BA1558DDEB008740BB /* SpectrumAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDA193B71558DDEB008740BB /* SpectrumAnalysis.cpp */; };
 		CDECC62E153FBE35005640A7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDECC62D153FBE35005640A7 /* CoreAudio.framework */; };
@@ -77,6 +78,7 @@
 		CD337211153E64DD004CBCCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CD337213153E64DD004CBCCB /* TrashBoxTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrashBoxTests.h; sourceTree = "<group>"; };
 		CD337214153E64DD004CBCCB /* TrashBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrashBoxTests.m; sourceTree = "<group>"; };
+		CD9879E01559E4D300D9A2B3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CDA193B51558DDEB008740BB /* simpleFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleFFT.cpp; sourceTree = "<group>"; };
 		CDA193B61558DDEB008740BB /* simpleFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleFFT.h; sourceTree = "<group>"; };
 		CDA193B71558DDEB008740BB /* SpectrumAnalysis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpectrumAnalysis.cpp; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				FEA6053C1559C7EC00AB9C8F /* SineWaveGen.mm */,
 				8AAF9940153F9AD900E0EB75 /* AudioController.h */,
 				8AAF9941153F9AD900E0EB75 /* AudioController.mm */,
+				CD9879E01559E4D300D9A2B3 /* Default@2x.png */,
 				CDA193B51558DDEB008740BB /* simpleFFT.cpp */,
 				CDA193B61558DDEB008740BB /* simpleFFT.h */,
 				8AF297FB1559D161005423ED /* graphFFT.h */,
@@ -284,6 +287,7 @@
 				CD337200153E64DD004CBCCB /* ViewController.xib in Resources */,
 				CD1A7EE41549DAB000294A88 /* Icon-72.png in Resources */,
 				CD1A7EE71549DC6600294A88 /* Icon-72B.png in Resources */,
+				CD9879E11559E4D300D9A2B3 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
