@@ -12,6 +12,7 @@
 @implementation AudioController
 @synthesize isInit, inputDeviceFound;
 @synthesize onOrOff, whichEffect;
+@synthesize LUTpointer;
 
 //DECLARE CONSTANT HERE FOR BUFFER SIZE
 
@@ -257,6 +258,11 @@ OSStatus MyAURenderCallback (
 -(void)setWhichEffect:(int)effectChoice
 {
     effectState.whichEffect = effectChoice;
+}
+
+-(void)setLUTPointer:(float*)pointer;
+{
+    LUTpointer = pointer;
 }
 
 

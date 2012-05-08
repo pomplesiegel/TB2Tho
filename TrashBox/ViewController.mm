@@ -59,8 +59,13 @@
 {
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    // Disable the idle timer
+    [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
     daController = [[AudioController alloc] init];
     graphView = [[Draw2D alloc] init];
+    float *LUTpointer;
+    LUTpointer = [graphView getLUTPointer];
+    [daController setLUTPointer:LUTpointer];
     
 }
 

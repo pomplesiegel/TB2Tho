@@ -17,6 +17,6 @@
 - (void)toggleSmooth1:(bool)state;
 - (void)toggleSmooth2:(bool)state;
 
-- (float *)getLUTPointer:(id)sender;
+- (float *)getLUTPointer;
 
 @end
