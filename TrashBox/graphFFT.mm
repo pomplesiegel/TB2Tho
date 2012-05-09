@@ -43,11 +43,7 @@ int divisor;
         ES.whichEffect = 0;
         ES.gainSliderValue = .5;
         
-<<<<<<< HEAD
-        blackman[0] = 0; blackman[1] = 0.016757719687408; blackman[2] = 0.077072419759159; blackman[3] = 0.200770143262530; blackman[4] = 0.394012423575122; 
-        blackman[5] = 0.630000000000000; blackman[6] = 0.849229856737469; blackman[7] = 0.982157436978311; blackman[8] = 0.982157436978311; blackman[9] = 0.849229856737469; blackman[10] = 0.630000000000000; blackman[11] = 0.394012423575122; blackman[12] = 0.200770143262530; blackman[13] = 0.077072419759159; blackman[14] = 0.016757719687408; blackman[15] = 0.016757719687408;       
-=======
->>>>>>> biasing
+
     }
     return self;
 }
