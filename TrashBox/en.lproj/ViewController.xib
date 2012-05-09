@@ -141,6 +141,7 @@
 						<string key="NSFrame">{{339, 252}, {207, 44}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="330092161"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBNumberOfSegments">2</int>
@@ -192,15 +193,17 @@
 						<string key="NSFrame">{{437, 801}, {295, 175}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="1038079269"/>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 					</object>
 					<object class="IBUIButton" id="330092161">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{313, 337}, {142, 37}}</string>
+						<string key="NSFrame">{{304, 324}, {160, 50}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="454473754"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -446,8 +449,6 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="effectOnOffSwitchHit:">id</string>
 						<string key="sliderChanged:">id</string>
-						<string key="smoothingSwitch1Hit:">id</string>
-						<string key="smoothingSwitch2Hit:">id</string>
 						<string key="whichEffectHit:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -459,14 +460,6 @@
 							<string key="name">sliderChanged:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="smoothingSwitch1Hit:">
-							<string key="name">smoothingSwitch1Hit:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="smoothingSwitch2Hit:">
-							<string key="name">smoothingSwitch2Hit:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="whichEffectHit:">
 							<string key="name">whichEffectHit:</string>
 							<string key="candidateClassName">id</string>
@@ -476,8 +469,6 @@
 						<string key="effectOnOff">UISwitch</string>
 						<string key="gainSlider">UISlider</string>
 						<string key="resetCurve">UIButton</string>
-						<string key="smoothing1">UISwitch</string>
-						<string key="smoothing2">UISwitch</string>
 						<string key="whichEffect">UISegmentedControl</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -492,14 +483,6 @@
 						<object class="IBToOneOutletInfo" key="resetCurve">
 							<string key="name">resetCurve</string>
 							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="smoothing1">
-							<string key="name">smoothing1</string>
-							<string key="candidateClassName">UISwitch</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="smoothing2">
-							<string key="name">smoothing2</string>
-							<string key="candidateClassName">UISwitch</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="whichEffect">
 							<string key="name">whichEffect</string>
