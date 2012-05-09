@@ -10,11 +10,15 @@
 
 #define Fs 15 //15 Hz sampling rate
 #define length 16 //16 samples
-#define fundamental 1 //Funamental tone, in Hz
+#define fundamental .9375 //Funamental tone, in Hz
 #define bitOffset 32768 //offset for 16bit indicies
 #define fftLength (length+2)/2 //NOT FFT SIZE!!!! This is the size of FFT magnitude output vector, for a one-sided spectrum
+#define sineWaveGain 100 //input gain for sine wave into nonlinear curve
 
 @implementation graphFFT
+
+
+
 
 @synthesize LUT;
 
@@ -22,6 +26,8 @@ EffectStateForGraph ES;
 float x[length]; //Vector for sine values
 float xforFFT[length+2]; //Vector for FFT output
 float xMagnitude[fftLength];
+float blackman[length]; //make blackman window
+
 
 
 //take in sine wave, apply gain, apply LUT or Atan, DISPLAY, use FFT, DISPLAY
@@ -36,7 +42,9 @@ float xMagnitude[fftLength];
         ES.effectOnOff = 1;
         ES.whichEffect = 0;
         ES.gainSliderValue = .5;
-                      
+        
+        blackman[0] = 0; blackman[1] = 0.016757719687408; blackman[2] = 0.077072419759159; blackman[3] = 0.200770143262530; blackman[4] = 0.394012423575122; 
+        blackman[5] = 0.630000000000000; blackman[6] = 0.849229856737469; blackman[7] = 0.982157436978311; blackman[8] = 0.982157436978311; blackman[9] = 0.849229856737469; blackman[10] = 0.630000000000000; blackman[11] = 0.394012423575122; blackman[12] = 0.200770143262530; blackman[13] = 0.077072419759159; blackman[14] = 0.016757719687408; blackman[15] = 0.016757719687408;       
     }
     return self;
 }
@@ -65,9 +73,7 @@ float xMagnitude[fftLength];
     {
         for(int i=0; i<length; i++)
             x[i] = atanf((ES.gainSliderValue)*x[i]);
-        
-        //NSLog(@"here");
-            
+                    
     }
     
    // NSLog(@"on or off: %i which effect: %i",ES.effectOnOff,ES.whichEffect);
@@ -83,25 +89,31 @@ float xMagnitude[fftLength];
         }
        
     }
+    
         
     //OUTPUT X IN THE TIME DOMAIN!!!!
     
     //NOW CALCULATE THE FFT, Find its magnitude, AND EVENTUALLY PLOT THE OUTPUT
     
     for(int i=0; i<length; i++) //copy for FFT array and apply Hann window
-        xforFFT[i] = x[i]*(float)((1.-cos(2.*M_PI*(i+.5)/((float)length)))/2.);
+        xforFFT[i] = x[i];//(float)((1.-cos(2.*M_PI*(i+.5)/((float)length)))/2.); //or blackman
     RealFFT_forward(xforFFT, length); //Outputs interleaved real & imaginary components of RH spectrum
     
     for(int i=0; i<fftLength; i++) 
     {
-        xMagnitude[i] = sqrtf(pow(xforFFT[2*i],2) + pow(xforFFT[2*i+1],2))/16; //Magnitude by frequency bin
-             
+        xMagnitude[i] = (sqrtf(pow(xforFFT[2*i],2) + pow(xforFFT[2*i+1],2))/16); //Magnitude by frequency bin        
     }
     
     for(int i=1; i<fftLength; i++) //normalize xMagnitude based on Fundamental's amplitude;
         xMagnitude[i] = xMagnitude[i]/xMagnitude[1];
+    
+    
+    for(int i=0; i<fftLength; i++) 
+    {
+//        xMagnitude[i] = log10(xMagnitude[i]); //Magnitude by frequency bin
         
- 
+    }
+
 }
 
 -(void)generateSineWave:(float*)x
@@ -109,7 +121,7 @@ float xMagnitude[fftLength];
     
     for(int i=0; i<length; i++)
     {
-        x[i] = sinf(2*M_PI*fundamental*((float)i/Fs));
+        x[i] = sineWaveGain*sinf(2*M_PI*fundamental*((float)i/Fs));
     }
 }
 

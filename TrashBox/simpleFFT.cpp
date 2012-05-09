@@ -6,6 +6,11 @@
  Note! The data array must have two extra buckets for repacking. I know, I know, it's stupid. Deal with it.
 */
 
+
+
+
+
+
 #include <math.h>
 #include "simpleFFT.h"
 
@@ -39,6 +44,7 @@ void repackRealFFT(float* data, int n);
  * Some edits were added by GWG.
  */
 void realFFT(float* indata, unsigned long n, int isign) {
+
 
     // GWG EDIT
     // numerical recipes was set up to work with 1:n
