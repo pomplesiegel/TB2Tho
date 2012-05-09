@@ -80,11 +80,13 @@ float xforFFT[length+2]; //Vector for FFT output
     
     //OUTPUT X IN THE TIME DOMAIN!!!!
     
-    //NOW CALCULATE THE FFT, AND EVENTUALLY PLOT THE OUTPUT
+    //NOW CALCULATE THE FFT, Find its magnitude, AND EVENTUALLY PLOT THE OUTPUT
     
     for(int i=0; i<length; i++) //copy for FFT array
         xforFFT[i] = x[i];
     RealFFT_forward(xforFFT, length); //Outputs interleaved real & imaginary components of RH spectrum
+    
+    
     
 
 }
