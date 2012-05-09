@@ -8,14 +8,15 @@
 
 #import "graphFFT.h"
 
-#define Fs 20 //20 Hz sampling rate
-#define length 21 //21 samples
+#define Fs 15 //15 Hz sampling rate
+#define length 16 //16 samples
 #define fundamental 1 //Funamental tone, in Hz
 
 @implementation graphFFT
 
 EffectStateForGraph ES; 
-float x[34]; //Vector for sine values
+float x[length]; //Vector for sine values
+float xforFFT[length+2]; //Vector for FFT output
 
 
 //take in sine wave, apply gain, apply LUT or Atan, DISPLAY, use FFT, DISPLAY
@@ -58,8 +59,11 @@ float x[34]; //Vector for sine values
 -(void)calcFFT
 {
     [self generateSineWave:x]; //place sine samples in x
-    RealFFT_forward(x, 32);
-
+    
+    for(int i=0; i<length; i++) //copy for FFT array
+        xforFFT[i] = x[i];
+    
+    RealFFT_forward(xforFFT, length); //Outputs interleaved real & imaginary components of RH spectrum
     
 
 }
@@ -70,6 +74,7 @@ float x[34]; //Vector for sine values
     for(int i=0; i<length; i++)
     {
         x[i] = sinf(2*M_PI*fundamental*((float)i/Fs));
+
     }
 }
 
