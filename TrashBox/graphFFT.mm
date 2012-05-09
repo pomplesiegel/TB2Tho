@@ -17,7 +17,7 @@
 
 @synthesize LUT;
 
-EffectStateForGraph ES; 
+EffectStateForGraph ES;
 float x[length]; //Vector for sine values
 float xforFFT[length+2]; //Vector for FFT output
 
@@ -29,6 +29,11 @@ float xforFFT[length+2]; //Vector for FFT output
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        //initialize
+        ES.effectOnOff = 1;
+        ES.whichEffect = 0;
+        ES.gainSliderValue = .5;
                       
     }
     return self;
@@ -49,7 +54,6 @@ float xforFFT[length+2]; //Vector for FFT output
 -(void)calcFFT
 {
     
-    NSLog(@"here1");
     [self generateSineWave:x]; //place sine samples in x
     
     //Modify x based on the current scenario
@@ -60,16 +64,18 @@ float xforFFT[length+2]; //Vector for FFT output
         for(int i=0; i<length; i++)
             x[i] = atanf((ES.gainSliderValue)*x[i]);
         
-        NSLog(@"here");
+        //NSLog(@"here");
             
     }
+    
+    NSLog(@"on or off: %i which effect: %i",ES.effectOnOff,ES.whichEffect);
     
     if(ES.effectOnOff && ES.whichEffect==1) //Effect on, DRAW
     {
         
         for(int i=0; i<length; i++) 
         {
-            NSLog(@"old: %f",x[i]);
+            NSLog(@"old: %f",bitOffset*x[i]);
             x[i] = LUT[(int)((x[i]*bitOffset)+bitOffset)]; //scale x to 16 amplitude, offset for 0-65537
             NSLog(@"LUT: %f",x[i]);
         }
