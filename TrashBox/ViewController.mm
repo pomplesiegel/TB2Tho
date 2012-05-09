@@ -11,7 +11,7 @@
 
 
 @implementation ViewController
-@synthesize gainSlider, effectOnOff, smoothing1, smoothing2, resetCurve;
+@synthesize gainSlider, effectOnOff,resetCurve;
 @synthesize whichEffect;
 
 //Change the Audio Controller's gain value to be that of the slider
@@ -36,19 +36,7 @@
     [daController setWhichEffect:effectChoice];
     [fftGraph setWhichEffect:effectChoice];
 }
-/*
-//Choose the first smoothing method
--(IBAction)smoothingSwitch1Hit:(id)sender
-{
-    [graphView toggleSmooth1:[sender isOn]];
-}
 
-//Choose the second smoothing method
--(IBAction)smoothingSwitch2Hit:(id)sender
-{
-    [graphView toggleSmooth2:[sender isOn]];
-}
-*/
 -(IBAction)resetCurveHit:(id)sender
 {
     [graphView resetCurve];

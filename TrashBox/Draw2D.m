@@ -37,18 +37,6 @@ CGContextRef context;
 graphFFT *FFTview;
 
 
-//Toggle dem smooves
-- (void)toggleSmooth1:(bool)state
-{
-    smoothing = state;
-    [self setNeedsDisplay];
-}
-- (void)toggleSmooth2:(bool)state
-{
-    smoothing2 = state;
-    [self setNeedsDisplay];
-}
-
 - (void)resetCurve
 {
     setup = FALSE;
@@ -60,8 +48,6 @@ graphFFT *FFTview;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        smoothing = false;
-        smoothing2 = false;
         setup = FALSE;
         
         
@@ -131,24 +117,6 @@ graphFFT *FFTview;
 
     //count = datapoints;
     
-    //pre-splining smoothing
-    if (smoothing == true) {
-        for(int i=0; i<datapoints; i++) {
-            int j = i - averagepoints/2;
-            averaged[i].y = 0;
-            averaged[i].x = graph[i].x;
-            while(j<(i+averagepoints/2)) {
-                if(j<0) {
-                    averaged[i].y += height;
-                }
-                else {
-                    averaged[i].y += graph[i].y;
-                }
-                j++;
-            }
-            averaged[i].y = averaged[i].y / averagepoints;
-        }
-    }
     /*
     for(int i = 1; i<2*datapoints; i++) {
         pi.x = 0.0f + i/2.0f;
@@ -160,50 +128,35 @@ graphFFT *FFTview;
     //This smooths out the graph by interpolating curves between points
     for(int i=0; i<datapoints; i++) {
         CGPoint p0, p1, p2, p3;
-        
-        //If first index, use mirrored point to help calculate smoothed line
-        if(smoothing == true) {
-            if(i==0) {
-                p0.x = -1 * averaged[0].x;
-                p0.y = 2*height - averaged[0].y;
-            }
-            else {
-                p0 = averaged[i-1];
-            }
-            p1 = averaged[i];
-            p2 = averaged[i+1];
-            p3 = averaged[i+2];
+
+        if(i==0) {
+            p0.x = -1 * graph[0].x;
+            p0.y = 2*height - graph[0].y;
+            p1 = graph[i];
+            p2 = graph[i+1];
+            p3 = graph[i+2];
+            //NSLog(@"slope: p1/p0: %f",(p1.y-p0.y)/(p1.x-p0.x));
+        }
+        else if (i==datapoints-2) {
+            p0 = graph[i-1];
+            p1 = graph[i];
+            p2 = graph[i+1];
+            p3.x = width/datapoints*(datapoints+0.5);
+            p3.y = p1.y * -1.0f;
+        }
+        else if(i==datapoints-1) {
+            p0 = graph[i-1];
+            p1 = graph[i];
+            p2.x = width/datapoints*(datapoints+0.5);
+            p2.y = p1.y * -1.0f;
+            p3.x = width/datapoints*(datapoints+1.5);
+            p3.y = p0.y * -1.0f;
         }
         else {
-            if(i==0) {
-                p0.x = -1 * graph[0].x;
-                p0.y = 2*height - graph[0].y;
-                p1 = graph[i];
-                p2 = graph[i+1];
-                p3 = graph[i+2];
-                //NSLog(@"slope: p1/p0: %f",(p1.y-p0.y)/(p1.x-p0.x));
-            }
-            else if (i==datapoints-2) {
-                p0 = graph[i-1];
-                p1 = graph[i];
-                p2 = graph[i+1];
-                p3.x = width/datapoints*(datapoints+0.5);
-                p3.y = p1.y * -1.0f;
-            }
-            else if(i==datapoints-1) {
-                p0 = graph[i-1];
-                p1 = graph[i];
-                p2.x = width/datapoints*(datapoints+0.5);
-                p2.y = p1.y * -1.0f;
-                p3.x = width/datapoints*(datapoints+1.5);
-                p3.y = p0.y * -1.0f;
-            }
-            else {
-                p0 = graph[i-1];
-                p1 = graph[i];
-                p2 = graph[i+1];
-                p3 = graph[i+2];
-            }
+            p0 = graph[i-1];
+            p1 = graph[i];
+            p2 = graph[i+1];
+            p3 = graph[i+2];
         }
         
         
@@ -233,28 +186,6 @@ graphFFT *FFTview;
     }
     //NSLog(@"Count = %d", count);
     
-    //post-splining smoothing
-    if(smoothing2 == true) {
-        for(int i = 0; i<count; i++) {
-            int j = i - averagepoints2/2;
-            averaged[i].y = 0;
-            averaged[i].x = points[i].x;
-            while(j<(i+averagepoints2/2)) {
-                if(j<0) {
-                    averaged[i].y += height;
-                }
-                else {
-                    averaged[i].y += points[i].y;
-                }
-                j++;
-            }
-            averaged[i].y = averaged[i].y / averagepoints2;
-        }
-        for(int i = 0; i<count; i++) {
-            points[i] = averaged[i];
-        }
-
-    }
     //draw final graph
     CGContextMoveToPoint(context, 0.0f, height);
     lut[shift16] = 0.0f;
