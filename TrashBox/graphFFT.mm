@@ -116,8 +116,12 @@ float xMagnitude[fftLength];
     for(int i=0; i<fftLength; i++) 
     {
         xMagnitude[i] = sqrtf(pow(xforFFT[2*i],2) + pow(xforFFT[2*i+1],2))/16; //Magnitude by frequency bin
-                
+             
     }
+    
+    for(int i=1; i<fftLength; i++) //normalize xMagnitude based on Fundamental's amplitude;
+        xMagnitude[i] = xMagnitude[i]/xMagnitude[1];
+        
  
 }
 
