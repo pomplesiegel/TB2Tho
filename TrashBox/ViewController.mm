@@ -34,6 +34,7 @@
     //See which effect segment is chosen, then set it active
     int effectChoice = [sender selectedSegmentIndex];
     [daController setWhichEffect:effectChoice];
+    [fftGraph setWhichEffect:effectChoice];
 }
 
 //Choose the first smoothing method
