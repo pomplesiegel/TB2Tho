@@ -59,7 +59,8 @@ graphFFT *FFTview;
 
 - (float *)getLUTPointer
 {
-    return lut;
+    //return lut;
+    return lutfake;
 }
 
 -(void)setFFTPointer:(graphFFT*)graph
@@ -109,9 +110,9 @@ graphFFT *FFTview;
             graph[i].x = vert;
             graph[i].y = height - height/width * vert;
         }
-        //for(int i=0; i<bits16; i++) {
-        //    lutfake[i] = i-shift16;
-        //}
+        for(int i=0; i<bits16; i++) {
+            lutfake[i] = i-shift16;
+        }
         setup = true;
     }
     
@@ -146,7 +147,8 @@ graphFFT *FFTview;
         pi.y = height - height/width * i/2.0f;
         points[i] = pi;
     }
-     */
+    */
+    
     
     //This smooths out the graph my interpolating curves between points
     for(int i=0; i<datapoints; i++) {
