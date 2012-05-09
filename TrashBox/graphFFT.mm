@@ -81,7 +81,7 @@ int divisor;
     if(ES.effectOnOff && ES.whichEffect==0) //Effect on, GRIT
     {
         for(int i=0; i<length; i++)
-            x[i] = atanf((ES.gainSliderValue)*x[i]/100); //scale down for atan?
+            x[i] = atanf((ES.gainSliderValue)*x[i]/22); //scale down for atan?
                     
     }
     
