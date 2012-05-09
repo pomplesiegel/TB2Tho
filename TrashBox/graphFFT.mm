@@ -15,6 +15,7 @@
 @implementation graphFFT
 
 EffectStateForGraph ES; 
+float x[length]; //Vector for sine values
 
 
 //take in sine wave, apply gain, apply LUT or Atan, DISPLAY, use FFT, DISPLAY
@@ -51,21 +52,14 @@ EffectStateForGraph ES;
 }
 */
 
--(void)setGainValue:(float)val {
-    ES.gainSliderValue = val;
-}
+
 
 
 -(void)calcFFT
 {
-    float x[length];
-    [self generateSineWave:x];
-
-    for(int i=0; i<length; i++)
-    {
-        NSLog(@"%f",x[i]); //show sine samples
-    }
+    [self generateSineWave:x]; //place sine samples in x
     
+
 }
 
 -(void)generateSineWave:(float*)x
@@ -74,12 +68,11 @@ EffectStateForGraph ES;
     for(int i=0; i<length; i++)
     {
         x[i] = sinf(2*M_PI*fundamental*((float)i/Fs));
-        //NSLog(@"%f",x[i]); //show sine samples
-      
     }
-    return x;
 }
 
-
+-(void)setGainValue:(float)val {
+    ES.gainSliderValue = val;
+}
 
 @end
