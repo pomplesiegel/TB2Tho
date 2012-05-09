@@ -15,8 +15,6 @@
 
 @property float* LUT;
 
-
-
 -(void)generateSineWave:(float*)x;
 -(void)calcFFT;
 -(void)setGainValue:(float)val;

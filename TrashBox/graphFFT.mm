@@ -151,8 +151,6 @@ int divisor;
     }
 }
 
-
-
 -(void)setGainValue:(float)val {
     ES.gainSliderValue = val;
     [self calcFFT];
