@@ -64,11 +64,11 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
     daController = [[AudioController alloc] init];
     graphView = [[Draw2D alloc] init];
-    mySine = [[SineWaveGen alloc] init];
+    fftGraph = [[graphFFT alloc] init];
     float *LUTpointer;
     LUTpointer = [graphView getLUTPointer];
     [daController setLUTPointer:LUTpointer];
-    [mySine generateSineWave];
+    [fftGraph calcFFT];
     
 }
 

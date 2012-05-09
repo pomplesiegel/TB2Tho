@@ -8,13 +8,36 @@
 
 #import "graphFFT.h"
 
+#define Fs 20 //20 Hz sampling rate
+#define length 21 //21 samples
+#define fundamental 1 //Funamental tone, in Hz
+
 @implementation graphFFT
+
+EffectStateForGraph ES; 
+
+
+//take in sine wave, apply gain, apply LUT or Atan, DISPLAY, use FFT, DISPLAY
+
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        
+        //FIX ALL THIS SHIT TO GET THE VALUES
+        
+        float* gainSliderValue = &ES.gainSliderValue;
+       // NSLog(@"gain slider value %f",gainSliderValue);
+        
+    
+
+        
+//        ES.gainSliderValue = .5;  //initial value
+//        ES.effectOnOff = YES;       //initial value
+//        ES.whichEffect = 0;       //initially have "grit" on
+        
+        
     }
     return self;
 }
@@ -27,5 +50,36 @@
     // Drawing code
 }
 */
+
+-(void)setGainValue:(float)val {
+    ES.gainSliderValue = val;
+}
+
+
+-(void)calcFFT
+{
+    float x[length];
+    [self generateSineWave:x];
+
+    for(int i=0; i<length; i++)
+    {
+        NSLog(@"%f",x[i]); //show sine samples
+    }
+    
+}
+
+-(void)generateSineWave:(float*)x
+{
+    
+    for(int i=0; i<length; i++)
+    {
+        x[i] = sinf(2*M_PI*fundamental*((float)i/Fs));
+        //NSLog(@"%f",x[i]); //show sine samples
+      
+    }
+    return x;
+}
+
+
 
 @end

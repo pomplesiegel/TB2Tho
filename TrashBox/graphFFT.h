@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <math.h>
 
 @interface graphFFT : UIView
 
+-(void)generateSineWave:(float*)x;
+-(void)calcFFT;
+
 @end
+
+typedef struct {
+    float gainSliderValue;
+    bool effectOnOff;
+    int whichEffect;
+} EffectStateForGraph;
+
