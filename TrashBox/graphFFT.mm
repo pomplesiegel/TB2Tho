@@ -14,7 +14,6 @@
 
 @implementation graphFFT
 
-@synthesize onOrOff, whichEffect;
 
 EffectStateForGraph ES; 
 float x[length]; //Vector for sine values
@@ -49,13 +48,33 @@ float xforFFT[length+2]; //Vector for FFT output
 {
     [self generateSineWave:x]; //place sine samples in x
     
-   
+    //Modify x based on the current scenario
+
+
+    if(ES.effectOnOff && ES.whichEffect==0) //Effect on, GRIT
+    {
+        for(int i=0; i<length; i++)
+            x[i] = atanf((ES.gainSliderValue)*x[i]);
+            
+    }
+    
+    if(ES.effectOnOff && ES.whichEffect==1) //Effect on, DRAW
+    {
+        for(int i=0; i<length; i++)
+            //
+            ;
+            
+                
+    }
+        
+
+    
+    //OUTPUT X IN THE TIME DOMAIN!!!!
+    
+    //NOW CALCULATE THE FFT, AND EVENTUALLY PLOT THE OUTPUT
+    
     for(int i=0; i<length; i++) //copy for FFT array
         xforFFT[i] = x[i];
-    
-    //Modify x based on the current scenario
-    
-    
     RealFFT_forward(xforFFT, length); //Outputs interleaved real & imaginary components of RH spectrum
     
 
@@ -70,6 +89,9 @@ float xforFFT[length+2]; //Vector for FFT output
     }
 }
 
+
+
+
 -(void)setGainValue:(float)val {
     ES.gainSliderValue = val;
     [self calcFFT];
@@ -77,8 +99,14 @@ float xforFFT[length+2]; //Vector for FFT output
 
 -(void)setEffectOnOff:(bool)val
 {
-    self.OnOrOff = val;
     ES.effectOnOff = val;
+    [self calcFFT];
+}
+
+-(void)setWhichEffect:(int)effectChoice
+{
+    ES.whichEffect = effectChoice;
+    [self calcFFT];
 }
 
 @end
