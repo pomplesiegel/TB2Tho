@@ -9,10 +9,14 @@
 #import "AudioController.h"
 
 @implementation AudioController
+
+#define scalingFactor 5
+
 @synthesize isInit, inputDeviceFound;
 @synthesize onOrOff, whichEffect;
 
 float* LUT;
+
 
 //DECLARE CONSTANT HERE FOR BUFFER SIZE
 
@@ -229,7 +233,19 @@ OSStatus MyAURenderCallback (
                 //bufData[i] = bufData[i]*30;
 
                 
-                fBuffer[i] = LUT[bufData[i]+32768];
+                if((bufData[i] > 32768/scalingFactor) || (bufData[i] < -32768/scalingFactor)) //if would be out of scope
+                {
+                    //bufData[i] = (scalingFactor-2)*bufData[i];
+                }
+
+                else 
+                {
+                    fBuffer[i] = LUT[(bufData[i]*scalingFactor) +32768];
+                }
+                
+                
+                
+                
                 
                 bufData[i] = 2*fBuffer[i];
                 
