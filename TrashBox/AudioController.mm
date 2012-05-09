@@ -10,12 +10,13 @@
 
 @implementation AudioController
 
-#define scalingFactor 5
+#define scalingFactor 3
 
 @synthesize isInit, inputDeviceFound;
 @synthesize onOrOff, whichEffect;
 
 float* LUT;
+float tempSample;
 
 
 //DECLARE CONSTANT HERE FOR BUFFER SIZE
@@ -228,14 +229,11 @@ OSStatus MyAURenderCallback (
             {
                 //Graphical LUT
                 
-            //Bufdata ~4000, Full scale = 32768
+                tempSample = bufData[i];
                 
-                //bufData[i] = bufData[i]*30;
-
-                
-                if((bufData[i] > 32768/scalingFactor) || (bufData[i] < -32768/scalingFactor)) //if would be out of scope
+                if((tempSample*scalingFactor > 32768*.7) || (tempSample*scalingFactor < -32768*.7)) //if would be out of scope
                 {
-                    //bufData[i] = (scalingFactor-2)*bufData[i];
+                    bufData[i] = (scalingFactor)*bufData[i];
                 }
 
                 else 
@@ -243,10 +241,7 @@ OSStatus MyAURenderCallback (
                     fBuffer[i] = LUT[(bufData[i]*scalingFactor) +32768];
                 }
                 
-                
-                
-                
-                
+
                 bufData[i] = 2*fBuffer[i];
                 
                // NSLog(@"%i",bufData[i]);

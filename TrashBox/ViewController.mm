@@ -13,6 +13,7 @@
 @implementation ViewController
 @synthesize gainSlider, effectOnOff,resetCurve;
 @synthesize whichEffect;
+@synthesize graphView, fftGraph;
 
 //Change the Audio Controller's gain value to be that of the slider
 -(IBAction)sliderChanged:(id)sender

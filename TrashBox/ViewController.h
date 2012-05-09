@@ -22,8 +22,6 @@
     UISwitch *effectOnOff;              //Switch to turn effects on/off
     UISegmentedControl *whichEffect;    //Segmented controller for choosing effect
     AudioController *daController;      //The audio controller that does the work
-    Draw2D *graphView;             //The actual graph view on the controller
-    graphFFT *fftGraph;
     
 }
 
@@ -32,6 +30,8 @@
 @property (nonatomic, strong) IBOutlet UISwitch *effectOnOff;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *whichEffect;
 @property (nonatomic, strong) IBOutlet UIButton *resetCurve;
+@property (nonatomic, strong) IBOutlet Draw2D *graphView;
+@property (nonatomic, strong) IBOutlet graphFFT *fftGraph;
 
 //Methods to act on the properties
 -(IBAction)sliderChanged:(id)sender;
