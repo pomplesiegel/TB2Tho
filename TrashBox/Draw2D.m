@@ -150,9 +150,8 @@ graphFFT *FFTview;
         points[i] = pi;
     }
     */
-    
-    
-    //This smooths out the graph my interpolating curves between points
+        
+    //This smooths out the graph by interpolating curves between points
     for(int i=0; i<datapoints; i++) {
         CGPoint p0, p1, p2, p3;
         
