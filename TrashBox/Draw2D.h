@@ -19,6 +19,6 @@
 - (void)toggleSmooth2:(bool)state;
 
 - (float *)getLUTPointer;
-- (void)setFFTPointer:(graphFFT)graph;
+- (void)setFFTPointer:(graphFFT*)graph;
 
 @end
