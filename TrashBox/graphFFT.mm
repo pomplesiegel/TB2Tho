@@ -14,6 +14,7 @@
 
 @implementation graphFFT
 
+@synthesize LUT;
 
 EffectStateForGraph ES; 
 float x[length]; //Vector for sine values
@@ -107,6 +108,11 @@ float xforFFT[length+2]; //Vector for FFT output
 {
     ES.whichEffect = effectChoice;
     [self calcFFT];
+}
+
+-(void)setLUTPointer:(float*)pointer;
+{
+    LUT = pointer;
 }
 
 @end

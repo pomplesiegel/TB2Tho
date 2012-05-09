@@ -12,6 +12,8 @@
 
 @interface graphFFT : UIView
 
+@property float* LUT;
+
 
 
 -(void)generateSineWave:(float*)x;
@@ -19,6 +21,7 @@
 -(void)setGainValue:(float)val;
 -(void)setEffectOnOff:(bool)val;
 -(void)setWhichEffect:(int)whichEffect;
+-(void)setLUTPointer:(float*)pointer; //set the pointer to the lookup table
 
 @end
 

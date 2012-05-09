@@ -71,6 +71,7 @@
     LUTpointer = [graphView getLUTPointer];
     [graphView setFFTPointer:fftGraph];
     [daController setLUTPointer:LUTpointer];
+    [fftGraph setLUTPointer:LUTpointer];
     [fftGraph calcFFT];
 }
 
