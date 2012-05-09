@@ -10,4 +10,6 @@
 
 @interface graphSine : UIView
 
+-(void)setSinePointer:(float*)pointer;
+
 @end

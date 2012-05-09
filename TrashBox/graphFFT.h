@@ -21,6 +21,7 @@
 -(void)setEffectOnOff:(bool)val;
 -(void)setWhichEffect:(int)whichEffect;
 -(void)setLUTPointer:(float*)pointer; //set the pointer to the lookup table
+-(float*)getSinePointer;
 
 @end
 

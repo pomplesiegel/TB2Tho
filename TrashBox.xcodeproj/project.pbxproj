@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A0CEA66155A56B200F1EF61 /* graphSine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CEA65155A56B200F1EF61 /* graphSine.m */; };
 		8A6E3AAB1548D75E0029B431 /* Draw2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E3AAA1548D75E0029B431 /* Draw2D.m */; };
 		8A6E3AAE1548D7F90029B431 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E3AAD1548D7F90029B431 /* QuartzCore.framework */; };
 		8AAF992C153F935E00E0EB75 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF992B153F935D00E0EB75 /* Accelerate.framework */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A0CEA64155A56B200F1EF61 /* graphSine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphSine.h; sourceTree = "<group>"; };
+		8A0CEA65155A56B200F1EF61 /* graphSine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = graphSine.m; sourceTree = "<group>"; };
 		8A6E3AA91548D75E0029B431 /* Draw2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Draw2D.h; sourceTree = "<group>"; };
 		8A6E3AAA1548D75E0029B431 /* Draw2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Draw2D.m; sourceTree = "<group>"; };
 		8A6E3AAD1548D7F90029B431 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -164,6 +167,8 @@
 				CDA193B61558DDEB008740BB /* simpleFFT.h */,
 				8AF297FB1559D161005423ED /* graphFFT.h */,
 				8AF297FC1559D161005423ED /* graphFFT.mm */,
+				8A0CEA64155A56B200F1EF61 /* graphSine.h */,
+				8A0CEA65155A56B200F1EF61 /* graphSine.m */,
 				CDA193B71558DDEB008740BB /* SpectrumAnalysis.cpp */,
 				CDA193B81558DDEB008740BB /* SpectrumAnalysis.h */,
 				8A6E3AA91548D75E0029B431 /* Draw2D.h */,
@@ -325,6 +330,7 @@
 				CDA193B91558DDEB008740BB /* simpleFFT.cpp in Sources */,
 				CDA193BA1558DDEB008740BB /* SpectrumAnalysis.cpp in Sources */,
 				8AF297FD1559D161005423ED /* graphFFT.mm in Sources */,
+				8A0CEA66155A56B200F1EF61 /* graphSine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
