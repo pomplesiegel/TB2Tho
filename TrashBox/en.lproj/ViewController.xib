@@ -221,7 +221,7 @@
 					<object class="IBUILabel" id="925813778">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{45, 828}, {262, 70}}</string>
+						<string key="NSFrame">{{45, 858}, {262, 70}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="187549990"/>
@@ -241,9 +241,10 @@
 					<object class="IBUISwitch" id="187549990">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{300, 849}, {94, 27}}</string>
+						<string key="NSFrame">{{300, 879}, {94, 27}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="28155622"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -255,6 +256,7 @@
 						<string key="NSFrame">{{437, 801}, {295, 175}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -406,10 +408,10 @@
 							<reference ref="356398636"/>
 							<reference ref="15931400"/>
 							<reference ref="459598515"/>
-							<reference ref="925813778"/>
 							<reference ref="352877114"/>
-							<reference ref="187549990"/>
 							<reference ref="28155622"/>
+							<reference ref="925813778"/>
+							<reference ref="187549990"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>

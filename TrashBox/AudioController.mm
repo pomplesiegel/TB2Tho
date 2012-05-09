@@ -269,6 +269,7 @@ OSStatus MyAURenderCallback (
     effectState.whichEffect = effectChoice;
 }
 
+//Set the LUT pointer
 -(void)setLUTPointer:(float*)pointer;
 {
     LUT = pointer;
