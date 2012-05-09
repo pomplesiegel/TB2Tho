@@ -163,4 +163,9 @@ int divisor;
     LUT = pointer;
 }
 
+-(float*)getSinePointer
+{
+    return x;
+}
+
 @end

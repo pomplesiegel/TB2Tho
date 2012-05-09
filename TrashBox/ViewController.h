@@ -12,6 +12,7 @@
 #import "AudioController.h"
 #import "Draw2D.h"
 #import "graphFFT.h"
+#import "graphSine.h"
 
 //@class AudioController;
 
@@ -32,6 +33,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *resetCurve;
 @property (nonatomic, strong) IBOutlet Draw2D *graphView;
 @property (nonatomic, strong) IBOutlet graphFFT *fftGraph;
+@property (nonatomic, strong) IBOutlet graphSine *sineGraph;
 
 //Methods to act on the properties
 -(IBAction)sliderChanged:(id)sender;
