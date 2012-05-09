@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <math.h>
 #import "simpleFFT.h"
+#import <stdlib.h>
 
 @interface graphFFT : UIView
 

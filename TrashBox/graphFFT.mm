@@ -12,6 +12,7 @@
 #define length 16 //16 samples
 #define fundamental 1 //Funamental tone, in Hz
 #define bitOffset 32768 //offset for 16bit indicies
+#define fftLength (length+2)/2 //NOT FFT SIZE!!!! This is the size of FFT magnitude output vector, for a one-sided spectrum
 
 @implementation graphFFT
 
@@ -20,6 +21,7 @@
 EffectStateForGraph ES;
 float x[length]; //Vector for sine values
 float xforFFT[length+2]; //Vector for FFT output
+float xMagnitude[fftLength];
 
 
 //take in sine wave, apply gain, apply LUT or Atan, DISPLAY, use FFT, DISPLAY
@@ -92,9 +94,10 @@ float xforFFT[length+2]; //Vector for FFT output
         xforFFT[i] = x[i];
     RealFFT_forward(xforFFT, length); //Outputs interleaved real & imaginary components of RH spectrum
     
+    for(int i=0; i<fftLength; i++) 
+        xMagnitude[i] = sqrtf(pow(xforFFT[2*i],2) + pow(xforFFT[2*i+1],2)); //Magnitude by frequency bin
     
     
-
 }
 
 -(void)generateSineWave:(float*)x

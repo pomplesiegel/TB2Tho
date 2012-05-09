@@ -229,7 +229,7 @@ OSStatus MyAURenderCallback (
                 //bufData[i] = bufData[i]*30;
 
                 
-                fBuffer[i] = LUT[10*bufData[i]+32768];
+                fBuffer[i] = LUT[bufData[i]+32768];
                 
                 bufData[i] = 2*fBuffer[i];
                 
