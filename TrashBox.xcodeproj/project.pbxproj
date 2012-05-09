@@ -14,6 +14,7 @@
 		8AAF9931153F936A00E0EB75 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAF9930153F936A00E0EB75 /* AudioToolbox.framework */; };
 		8AAF9942153F9AD900E0EB75 /* AudioController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AAF9941153F9AD900E0EB75 /* AudioController.mm */; };
 		8AF297FD1559D161005423ED /* graphFFT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AF297FC1559D161005423ED /* graphFFT.mm */; };
+		8AF2982D155A25CF005423ED /* graphSine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2982C155A25CF005423ED /* graphSine.m */; };
 		CD1A7EE41549DAB000294A88 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CD1A7EE31549DAB000294A88 /* Icon-72.png */; };
 		CD1A7EE71549DC6600294A88 /* Icon-72B.png in Resources */ = {isa = PBXBuildFile; fileRef = CD1A7EE61549DC6600294A88 /* Icon-72B.png */; };
 		CD3371EA153E64DD004CBCCB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3371E9153E64DD004CBCCB /* UIKit.framework */; };
@@ -56,6 +57,8 @@
 		8AAF9941153F9AD900E0EB75 /* AudioController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioController.mm; sourceTree = "<group>"; };
 		8AF297FB1559D161005423ED /* graphFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphFFT.h; sourceTree = "<group>"; };
 		8AF297FC1559D161005423ED /* graphFFT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = graphFFT.mm; sourceTree = "<group>"; };
+		8AF2982B155A25CF005423ED /* graphSine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphSine.h; sourceTree = "<group>"; };
+		8AF2982C155A25CF005423ED /* graphSine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = graphSine.m; sourceTree = "<group>"; };
 		CD1A7EE31549DAB000294A88 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		CD1A7EE61549DC6600294A88 /* Icon-72B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72B.png"; sourceTree = "<group>"; };
 		CD3371E5153E64DD004CBCCB /* TrashBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrashBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +167,8 @@
 				CDA193B61558DDEB008740BB /* simpleFFT.h */,
 				8AF297FB1559D161005423ED /* graphFFT.h */,
 				8AF297FC1559D161005423ED /* graphFFT.mm */,
+				8AF2982B155A25CF005423ED /* graphSine.h */,
+				8AF2982C155A25CF005423ED /* graphSine.m */,
 				CDA193B71558DDEB008740BB /* SpectrumAnalysis.cpp */,
 				CDA193B81558DDEB008740BB /* SpectrumAnalysis.h */,
 				8A6E3AA91548D75E0029B431 /* Draw2D.h */,
@@ -325,6 +330,7 @@
 				CDA193B91558DDEB008740BB /* simpleFFT.cpp in Sources */,
 				CDA193BA1558DDEB008740BB /* SpectrumAnalysis.cpp in Sources */,
 				8AF297FD1559D161005423ED /* graphFFT.mm in Sources */,
+				8AF2982D155A25CF005423ED /* graphSine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

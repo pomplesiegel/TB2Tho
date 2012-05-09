@@ -13,10 +13,16 @@
 #define fundamental 1 //Funamental tone, in Hz
 #define bitOffset 32768 //offset for 16bit indicies
 #define fftLength (length+2)/2 //NOT FFT SIZE!!!! This is the size of FFT magnitude output vector, for a one-sided spectrum
+#define fftpoints 8
 
 @implementation graphFFT
 
 @synthesize LUT;
+
+CGFloat width;
+CGFloat height;
+CGFloat divisor;
+CGContextRef context;
 
 EffectStateForGraph ES;
 float x[length]; //Vector for sine values
@@ -41,14 +47,29 @@ float xMagnitude[fftLength];
     return self;
 }
 
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    width = self.frame.size.width;
+    height = self.frame.size.height;
+    divisor = width / fftpoints;
+    context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetLineWidth(context, divisor);
+    CGContextSetStrokeColorWithColor(context,[UIColor redColor].CGColor);
+    
+    for(int i=0; i<fftpoints; i++) {
+        CGFloat vert = width/fftpoints*(i+0.5f);
+        CGContextMoveToPoint(context, vert,height);
+        CGContextAddLineToPoint(context, vert, height*);
+    }
+    CGContextStrokePath(context);
+    
+    
 }
-*/
+
 
 
 
