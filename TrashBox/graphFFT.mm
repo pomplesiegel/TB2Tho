@@ -31,7 +31,6 @@ int divisor;
 
 //take in sine wave, apply gain, apply LUT or Atan, DISPLAY, use FFT, DISPLAY
 
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
