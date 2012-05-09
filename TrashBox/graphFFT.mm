@@ -18,9 +18,6 @@
 
 @implementation graphFFT
 
-
-
-
 @synthesize LUT;
 
 EffectStateForGraph ES;
