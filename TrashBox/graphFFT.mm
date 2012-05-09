@@ -63,7 +63,7 @@ int divisor;
     for(int i=0; i<fftpoints; i++) {
         CGFloat vert = width/fftpoints*(i+0.5f);
         CGContextMoveToPoint(context, vert,height);
-        NSLog(@"mag: %f", xMagnitude[i+1]);
+        //NSLog(@"mag: %f", xMagnitude[i+1]);
         CGContextAddLineToPoint(context, vert, height*(1-xMagnitude[i+1]));
     }
     CGContextStrokePath(context);
@@ -117,12 +117,23 @@ int divisor;
         xMagnitude[i] = xMagnitude[i]/xMagnitude[1];
     
     
+<<<<<<< HEAD
     //normalize sine wave by largest positive value
     max = x[0];
     for(int i=0; i<length; i++) //Normalize sine wave
         if(x[i] > max) max = x[i];
     for(int i=0; i<length; i++)
         x[i] = x[i]/max;
+=======
+    for(int i=0; i<fftLength; i++) 
+    {
+//        xMagnitude[i] = log10(xMagnitude[i]); //Magnitude by frequency bin
+        
+    }
+
+     
+    //NSLog(@"Calc FFT");
+>>>>>>> 5871daddffe3059134b57b786032b6d5488ea5ad
 
     [self setNeedsDisplay];
 }
