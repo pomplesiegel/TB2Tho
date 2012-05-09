@@ -34,6 +34,7 @@ bool setup;
 bool smoothing;     //pre-splining smoothing
 bool smoothing2;    //post-splining smoothing
 CGContextRef context;
+graphFFT *FFTview;
 
 
 //Toggle dem smooves
@@ -59,6 +60,11 @@ CGContextRef context;
 - (float *)getLUTPointer
 {
     return lut;
+}
+
+-(void)setFFTPointer:(graphFFT*)graph
+{
+    FFTview = graph;
 }
 
 /*
@@ -275,6 +281,7 @@ CGContextRef context;
     }
     lut[0] = -1.0f * MAXVAL;
     CGContextStrokePath(context);
+    [FFTview calcFFT];
 }
 
 //Start dat touch
