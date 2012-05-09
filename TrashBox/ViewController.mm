@@ -19,6 +19,8 @@
 {
     [daController setGainValue:[gainSlider value]];
     [fftGraph setGainValue:[gainSlider value]];
+    [fftGraph setNeedsDisplay];
+    [self.view setNeedsDisplay];
 }
 
 //Change the effect's on/off status to match that of the switch
@@ -72,7 +74,9 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
     daController = [[AudioController alloc] init];
     graphView = [[Draw2D alloc] init];
+    [self.view addSubview:graphView];
     fftGraph = [[graphFFT alloc] init];
+    [self.view addSubview:fftGraph];
     float *LUTpointer;
     LUTpointer = [graphView getLUTPointer];
     [graphView setFFTPointer:fftGraph];

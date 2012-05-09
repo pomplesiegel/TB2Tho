@@ -52,22 +52,21 @@ float xMagnitude[fftLength];
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    
     width = self.frame.size.width;
     height = self.frame.size.height;
     divisor = width / fftpoints;
     context = UIGraphicsGetCurrentContext();
     
-    CGContextSetLineWidth(context, divisor);
+    CGContextSetLineWidth(context, divisor/2.0f);
     CGContextSetStrokeColorWithColor(context,[UIColor redColor].CGColor);
-    
     for(int i=0; i<fftpoints; i++) {
         CGFloat vert = width/fftpoints*(i+0.5f);
         CGContextMoveToPoint(context, vert,height);
-        CGContextAddLineToPoint(context, vert, height*);
+        NSLog(@"mag: %f", xMagnitude[i+1]);
+        CGContextAddLineToPoint(context, vert, height*(1-xMagnitude[i+1]));
     }
     CGContextStrokePath(context);
-    
-    
 }
 
 
@@ -121,8 +120,19 @@ float xMagnitude[fftLength];
     
     for(int i=1; i<fftLength; i++) //normalize xMagnitude based on Fundamental's amplitude;
         xMagnitude[i] = xMagnitude[i]/xMagnitude[1];
-        
- 
+     
+    NSLog(@"Calc FFT");
+    
+    CGContextSetLineWidth(context, divisor/2.0f);
+    CGContextSetStrokeColorWithColor(context,[UIColor redColor].CGColor);
+    for(int i=0; i<fftpoints; i++) {
+        CGFloat vert = width/fftpoints*(i+0.5f);
+        CGContextMoveToPoint(context, vert,height);
+        NSLog(@"mag: %f", xMagnitude[i+1]);
+        CGContextAddLineToPoint(context, vert, height*(1-xMagnitude[i+1]));
+    }
+    CGContextStrokePath(context);
+    [self setNeedsDisplay];
 }
 
 -(void)generateSineWave:(float*)x

@@ -25,7 +25,7 @@
     UISwitch *smoothing1;               //Smooths the drawing in one way
     UISwitch *smoothing2;               //Smooths it out in another way
     Draw2D *graphView;             //The actual graph view on the controller
-    graphFFT* fftGraph;
+    graphFFT *fftGraph;
     
 }
 
