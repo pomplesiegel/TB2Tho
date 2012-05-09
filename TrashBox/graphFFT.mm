@@ -24,6 +24,7 @@ EffectStateForGraph ES;
 float x[length]; //Vector for sine values
 float xforFFT[length+2]; //Vector for FFT output
 float xMagnitude[fftLength];
+int max;
 
 
 CGContextRef context;
@@ -116,6 +117,12 @@ int divisor;
         xMagnitude[i] = xMagnitude[i]/xMagnitude[1];
     
     
+    //normalize sine wave by largest positive value
+    max = x[0];
+    for(int i=0; i<length; i++) //Normalize sine wave
+        if(x[i] > max) max = x[i];
+    for(int i=0; i<length; i++)
+        x[i] = x[i]/max;
     for(int i=0; i<fftLength; i++) 
     {
 //        xMagnitude[i] = log10(xMagnitude[i]); //Magnitude by frequency bin

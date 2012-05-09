@@ -10,7 +10,7 @@
 
 @implementation AudioController
 
-#define scalingFactor 3
+#define scalingFactor 1
 
 @synthesize isInit, inputDeviceFound;
 @synthesize onOrOff, whichEffect;
