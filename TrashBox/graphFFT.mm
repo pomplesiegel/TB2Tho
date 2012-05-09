@@ -62,7 +62,7 @@ int divisor;
     for(int i=0; i<fftpoints; i++) {
         CGFloat vert = width/fftpoints*(i+0.5f);
         CGContextMoveToPoint(context, vert,height);
-        NSLog(@"mag: %f", xMagnitude[i+1]);
+        //NSLog(@"mag: %f", xMagnitude[i+1]);
         CGContextAddLineToPoint(context, vert, height*(1-xMagnitude[i+1]));
     }
     CGContextStrokePath(context);
@@ -123,7 +123,7 @@ int divisor;
     }
 
      
-    NSLog(@"Calc FFT");
+    //NSLog(@"Calc FFT");
 
     [self setNeedsDisplay];
 }
