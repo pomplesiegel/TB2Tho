@@ -14,6 +14,8 @@
 
 @implementation graphFFT
 
+@synthesize onOrOff, whichEffect;
+
 EffectStateForGraph ES; 
 float x[length]; //Vector for sine values
 float xforFFT[length+2]; //Vector for FFT output
@@ -70,8 +72,13 @@ float xforFFT[length+2]; //Vector for FFT output
 
 -(void)setGainValue:(float)val {
     ES.gainSliderValue = val;
-    
-    
+    [self calcFFT];
+}
+
+-(void)setEffectOnOff:(bool)val
+{
+    self.OnOrOff = val;
+    ES.effectOnOff = val;
 }
 
 @end

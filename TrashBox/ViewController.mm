@@ -18,12 +18,14 @@
 -(IBAction)sliderChanged:(id)sender
 {
     [daController setGainValue:[gainSlider value]];
+    [fftGraph setGainValue:[gainSlider value]];
 }
 
 //Change the effect's on/off status to match that of the switch
 -(IBAction)effectOnOffSwitchHit:(id)sender
 {
     [daController setEffectOnOff:[sender isOn]];
+    [fftGraph setEffectOnOff:[sender isOn]];
 }
 
 //Choose which effect to use on the samples

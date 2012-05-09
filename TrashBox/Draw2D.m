@@ -105,7 +105,7 @@ graphFFT *FFTview;
         for(int i=0; i<datapoints; i++)
         {
             //special x values to allow data points to fall between vertical bars
-            CGFloat vert = width/datapoints*(i+0.5);
+            CGFloat vert = width/datapoints*(i+0.5f);
             graph[i].x = vert;
             if(i==0) {
                 graph[i].y = height - (height/width * (i+1) * divisor)*0.5;
@@ -177,6 +177,7 @@ graphFFT *FFTview;
                 p1 = graph[i];
                 p2 = graph[i+1];
                 p3 = graph[i+2];
+                NSLog(@"slope: p1/p0: %f",(p1.y-p0.y)/(p1.x-p0.x));
             }
             else if (i==datapoints-2) {
                 p0 = graph[i-1];
@@ -191,7 +192,7 @@ graphFFT *FFTview;
                 p2.x = width/datapoints*(datapoints+0.5);
                 p2.y = p1.y * -1.0f;
                 p3.x = width/datapoints*(datapoints+1.5);
-                p3.y = p0.x * -1.0f;
+                p3.y = p0.y * -1.0f;
             }
             else {
                 p0 = graph[i-1];
