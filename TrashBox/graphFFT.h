@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <math.h>
+#import "simpleFFT.h"
 
 @interface graphFFT : UIView
 

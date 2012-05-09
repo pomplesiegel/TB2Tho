@@ -15,7 +15,7 @@
 @implementation graphFFT
 
 EffectStateForGraph ES; 
-float x[length]; //Vector for sine values
+float x[34]; //Vector for sine values
 
 
 //take in sine wave, apply gain, apply LUT or Atan, DISPLAY, use FFT, DISPLAY
@@ -58,6 +58,8 @@ float x[length]; //Vector for sine values
 -(void)calcFFT
 {
     [self generateSineWave:x]; //place sine samples in x
+    RealFFT_forward(x, 32);
+
     
 
 }
@@ -73,6 +75,8 @@ float x[length]; //Vector for sine values
 
 -(void)setGainValue:(float)val {
     ES.gainSliderValue = val;
+    
+    
 }
 
 @end
