@@ -33,7 +33,6 @@
 		CDA193B91558DDEB008740BB /* simpleFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDA193B51558DDEB008740BB /* simpleFFT.cpp */; };
 		CDA193BA1558DDEB008740BB /* SpectrumAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDA193B71558DDEB008740BB /* SpectrumAnalysis.cpp */; };
 		CDECC62E153FBE35005640A7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDECC62D153FBE35005640A7 /* CoreAudio.framework */; };
-		FEA6053D1559C7EC00AB9C8F /* SineWaveGen.mm in Sources */ = {isa = PBXBuildFile; fileRef = FEA6053C1559C7EC00AB9C8F /* SineWaveGen.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +84,6 @@
 		CDA193B81558DDEB008740BB /* SpectrumAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectrumAnalysis.h; sourceTree = "<group>"; };
 		CDECC62D153FBE35005640A7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		CDECC62F153FBE3E005640A7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
-		FEA6053B1559C7EC00AB9C8F /* SineWaveGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWaveGen.h; sourceTree = "<group>"; };
-		FEA6053C1559C7EC00AB9C8F /* SineWaveGen.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SineWaveGen.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +158,6 @@
 				CD3371F9153E64DD004CBCCB /* AppDelegate.m */,
 				CD3371FB153E64DD004CBCCB /* ViewController.h */,
 				CD3371FC153E64DD004CBCCB /* ViewController.mm */,
-				FEA6053B1559C7EC00AB9C8F /* SineWaveGen.h */,
-				FEA6053C1559C7EC00AB9C8F /* SineWaveGen.mm */,
 				8AAF9940153F9AD900E0EB75 /* AudioController.h */,
 				8AAF9941153F9AD900E0EB75 /* AudioController.mm */,
 				CD9879E01559E4D300D9A2B3 /* Default@2x.png */,
@@ -329,7 +324,6 @@
 				8A6E3AAB1548D75E0029B431 /* Draw2D.m in Sources */,
 				CDA193B91558DDEB008740BB /* simpleFFT.cpp in Sources */,
 				CDA193BA1558DDEB008740BB /* SpectrumAnalysis.cpp in Sources */,
-				FEA6053D1559C7EC00AB9C8F /* SineWaveGen.mm in Sources */,
 				8AF297FD1559D161005423ED /* graphFFT.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
