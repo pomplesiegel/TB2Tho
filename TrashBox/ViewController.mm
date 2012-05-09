@@ -13,7 +13,7 @@
 @implementation ViewController
 @synthesize gainSlider, effectOnOff,resetCurve;
 @synthesize whichEffect;
-@synthesize graphView, fftGraph;
+@synthesize graphView, fftGraph, sineGraph;
 
 //Change the Audio Controller's gain value to be that of the slider
 -(IBAction)sliderChanged:(id)sender
@@ -64,11 +64,16 @@
     [self.view addSubview:graphView];
     fftGraph = [[graphFFT alloc] init];
     [self.view addSubview:fftGraph];
+    sineGraph = [[graphSine alloc] init];
+    [self.view addSubview:sineGraph];
     float *LUTpointer;
     LUTpointer = [graphView getLUTPointer];
     [graphView setFFTPointer:fftGraph];
     [daController setLUTPointer:LUTpointer];
     [fftGraph setLUTPointer:LUTpointer];
+    float *sinePointer;
+    sinePointer = [fftGraph getSinePointer];
+    [sineGraph setSinePointer:sinePointer];
     [fftGraph calcFFT];
 }
 
