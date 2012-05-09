@@ -11,6 +11,7 @@
 #define Fs 15 //15 Hz sampling rate
 #define length 16 //16 samples
 #define fundamental 1 //Funamental tone, in Hz
+#define bitOffset 32768 //offset for 16bit indicies
 
 @implementation graphFFT
 
@@ -47,6 +48,8 @@ float xforFFT[length+2]; //Vector for FFT output
 
 -(void)calcFFT
 {
+    
+    NSLog(@"here1");
     [self generateSineWave:x]; //place sine samples in x
     
     //Modify x based on the current scenario
@@ -56,16 +59,21 @@ float xforFFT[length+2]; //Vector for FFT output
     {
         for(int i=0; i<length; i++)
             x[i] = atanf((ES.gainSliderValue)*x[i]);
+        
+        NSLog(@"here");
             
     }
     
     if(ES.effectOnOff && ES.whichEffect==1) //Effect on, DRAW
     {
-        for(int i=0; i<length; i++)
-            //
-            ;
-            
-                
+        
+        for(int i=0; i<length; i++) 
+        {
+            NSLog(@"old: %f",x[i]);
+            x[i] = LUT[(int)((x[i]*bitOffset)+bitOffset)]; //scale x to 16 amplitude, offset for 0-65537
+            NSLog(@"LUT: %f",x[i]);
+        }
+       
     }
         
 
@@ -89,7 +97,6 @@ float xforFFT[length+2]; //Vector for FFT output
         x[i] = sinf(2*M_PI*fundamental*((float)i/Fs));
     }
 }
-
 
 
 
