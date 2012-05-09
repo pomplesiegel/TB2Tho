@@ -84,8 +84,6 @@ float xMagnitude[fftLength];
        
     }
         
-
-    
     //OUTPUT X IN THE TIME DOMAIN!!!!
     
     //NOW CALCULATE THE FFT, Find its magnitude, AND EVENTUALLY PLOT THE OUTPUT
@@ -95,9 +93,11 @@ float xMagnitude[fftLength];
     RealFFT_forward(xforFFT, length); //Outputs interleaved real & imaginary components of RH spectrum
     
     for(int i=0; i<fftLength; i++) 
-        xMagnitude[i] = sqrtf(pow(xforFFT[2*i],2) + pow(xforFFT[2*i+1],2)); //Magnitude by frequency bin
-    
-    
+    {
+        xMagnitude[i] = sqrtf(pow(xforFFT[2*i],2) + pow(xforFFT[2*i+1],2))/16; //Magnitude by frequency bin
+                
+    }
+ 
 }
 
 -(void)generateSineWave:(float*)x
