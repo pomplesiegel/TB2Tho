@@ -35,6 +35,7 @@
 @property (nonatomic, strong) IBOutlet UISegmentedControl *whichEffect;
 @property (nonatomic, strong) IBOutlet UISwitch *smoothing1;
 @property (nonatomic, strong) IBOutlet UISwitch *smoothing2;
+@property (nonatomic, strong) IBOutlet UIButton *resetCurve;
 
 //Methods to act on the properties
 -(IBAction)sliderChanged:(id)sender;

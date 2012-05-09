@@ -11,7 +11,7 @@
 
 
 @implementation ViewController
-@synthesize gainSlider, effectOnOff, smoothing1, smoothing2;
+@synthesize gainSlider, effectOnOff, smoothing1, smoothing2, resetCurve;
 @synthesize whichEffect;
 
 //Change the Audio Controller's gain value to be that of the slider
@@ -47,6 +47,11 @@
 -(IBAction)smoothingSwitch2Hit:(id)sender
 {
     [graphView toggleSmooth2:[sender isOn]];
+}
+
+-(IBAction)resetCurveHit:(id)sender
+{
+    [graphView resetCurve];
 }
 
 - (void)didReceiveMemoryWarning

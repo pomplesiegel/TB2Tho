@@ -17,6 +17,7 @@
 
 - (void)toggleSmooth1:(bool)state;
 - (void)toggleSmooth2:(bool)state;
+- (void)resetCurve;
 
 - (float *)getLUTPointer;
 - (void)setFFTPointer:(graphFFT*)graph;

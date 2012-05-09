@@ -49,9 +49,18 @@ graphFFT *FFTview;
     [self setNeedsDisplay];
 }
 
+- (void)resetCurve
+{
+    setup = FALSE;
+    [self setNeedsDisplay];
+}
+
 //Gonna have to look in to this; empty if statement
 - (id)initWithFrame:(CGRect)frame
 {
+    smoothing = false;
+    smoothing2 = false;
+    setup = FALSE;
     self = [super initWithFrame:frame];
     if (self) {
         
@@ -99,12 +108,9 @@ graphFFT *FFTview;
     CGContextBeginPath(context);
     
     
-    
     //initialize the graph variable to a linear function
     if(setup == false)
     {  
-        smoothing = false;
-        smoothing2 = false;
         for(int i=0; i<datapoints; i++)
         {
             //special x values to allow data points to fall between vertical bars
@@ -274,13 +280,13 @@ graphFFT *FFTview;
         }
         
     }
-    lut[0] = -1.0f * MAXVAL;
+    lut[0] = lut[1];
     CGContextStrokePath(context);
     //NSLog(@"Count: %d",count);
-    for(int i = 0; i < bits16/2048; i++) {
-        NSLog(@"fake: %f",lutfake[i*2048]);
-        NSLog(@"real: %f",lut[i*2048]);
-    }
+    //for(int i = 0; i < bits16/2048; i++) {
+        //NSLog(@"fake: %f",lutfake[i*2048]);
+        //NSLog(@"real: %f",lut[i*2048]);
+    //}
     
     [FFTview calcFFT];
 }
