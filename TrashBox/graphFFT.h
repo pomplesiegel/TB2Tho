@@ -12,8 +12,13 @@
 
 @interface graphFFT : UIView
 
+@property bool onOrOff;
+@property (nonatomic) int whichEffect;
+
 -(void)generateSineWave:(float*)x;
 -(void)calcFFT;
+-(void)setGainValue:(float)val;
+-(void)setEffectOnOff:(bool)val;
 
 @end
 
