@@ -89,7 +89,7 @@ float xMagnitude[fftLength];
     //NOW CALCULATE THE FFT, Find its magnitude, AND EVENTUALLY PLOT THE OUTPUT
     
     for(int i=0; i<length; i++) //copy for FFT array
-        xforFFT[i] = x[i];
+        xforFFT[i] = x[i]*(float)((1.-cos(2.*M_PI*(i+.5)/((float)length)))/2.);;
     RealFFT_forward(xforFFT, length); //Outputs interleaved real & imaginary components of RH spectrum
     
     for(int i=0; i<fftLength; i++) 
