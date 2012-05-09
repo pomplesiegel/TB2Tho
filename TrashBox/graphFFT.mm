@@ -68,16 +68,16 @@ float xforFFT[length+2]; //Vector for FFT output
             
     }
     
-    NSLog(@"on or off: %i which effect: %i",ES.effectOnOff,ES.whichEffect);
+   // NSLog(@"on or off: %i which effect: %i",ES.effectOnOff,ES.whichEffect);
     
     if(ES.effectOnOff && ES.whichEffect==1) //Effect on, DRAW
     {
         
         for(int i=0; i<length; i++) 
         {
-            NSLog(@"old: %f",bitOffset*x[i]);
+            //NSLog(@"old: %f",bitOffset*x[i]);
             x[i] = LUT[(int)((x[i]*bitOffset)+bitOffset)]; //scale x to 16 amplitude, offset for 0-65537
-            NSLog(@"LUT: %f",x[i]);
+            //NSLog(@"LUT: %f",x[i]);
         }
        
     }
