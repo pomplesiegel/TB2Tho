@@ -67,9 +67,9 @@
     fftGraph = [[graphFFT alloc] init];
     float *LUTpointer;
     LUTpointer = [graphView getLUTPointer];
+    [graphView setFFTPointer:fftGraph];
     [daController setLUTPointer:LUTpointer];
     [fftGraph calcFFT];
-    
 }
 
 - (void)viewDidUnload

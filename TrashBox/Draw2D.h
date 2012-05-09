@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "graphFFT.h"
 
 @interface Draw2D : UIView
 
@@ -18,5 +19,6 @@
 - (void)toggleSmooth2:(bool)state;
 
 - (float *)getLUTPointer;
+- (void)setFFTPointer:(graphFFT)graph;
 
 @end
