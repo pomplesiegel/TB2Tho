@@ -61,8 +61,8 @@ graphFFT *FFTview;
 
 - (float *)getLUTPointer
 {
-    //return lut;
-    return lutfake;
+    return lut;
+    //return lutfake;
 }
 
 -(void)setFFTPointer:(graphFFT*)graph
@@ -176,7 +176,7 @@ graphFFT *FFTview;
                 p1 = graph[i];
                 p2 = graph[i+1];
                 p3 = graph[i+2];
-                NSLog(@"slope: p1/p0: %f",(p1.y-p0.y)/(p1.x-p0.x));
+                //NSLog(@"slope: p1/p0: %f",(p1.y-p0.y)/(p1.x-p0.x));
             }
             else if (i==datapoints-2) {
                 p0 = graph[i-1];
@@ -268,8 +268,9 @@ graphFFT *FFTview;
             lut[shift16-i] = 0.0f;
         }
         else {
-            lut[shift16+i] = (1 - y / height)*(MAXVAL-1) - 1024;
-            lut[shift16-i] = (y/height - 1)*MAXVAL + 1024;
+            float tempval = -1 * ((y/height - 1)*MAXVAL + 1025);
+            lut[shift16+i] = tempval;
+            lut[shift16-i] = tempval * -1;
         }
         
     }

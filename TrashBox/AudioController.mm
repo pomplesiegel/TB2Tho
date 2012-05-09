@@ -219,7 +219,7 @@ OSStatus MyAURenderCallback (
 
             }
             
-            //Effects are on AND we choose the "draw" effect
+            //Effects are on AND we choose the "draw" effectx
             if(effectState->effectOnOff && effectState->whichEffect==1)
             {
                 //Graphical LUT
