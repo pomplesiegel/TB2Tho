@@ -31,6 +31,7 @@
 		CD337215153E64DD004CBCCB /* TrashBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD337214153E64DD004CBCCB /* TrashBoxTests.m */; };
 		CD4204D1155A01F7009DAD56 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4204D0155A01F7009DAD56 /* Default@2x.png */; };
 		CDA193B91558DDEB008740BB /* simpleFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDA193B51558DDEB008740BB /* simpleFFT.cpp */; };
+		CDA193BA1558DDEB008740BB /* SpectrumAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDA193B71558DDEB008740BB /* SpectrumAnalysis.cpp */; };
 		CDECC62E153FBE35005640A7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDECC62D153FBE35005640A7 /* CoreAudio.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		CD4204D0155A01F7009DAD56 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CDA193B51558DDEB008740BB /* simpleFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleFFT.cpp; sourceTree = "<group>"; };
 		CDA193B61558DDEB008740BB /* simpleFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleFFT.h; sourceTree = "<group>"; };
+		CDA193B71558DDEB008740BB /* SpectrumAnalysis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpectrumAnalysis.cpp; sourceTree = "<group>"; };
+		CDA193B81558DDEB008740BB /* SpectrumAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectrumAnalysis.h; sourceTree = "<group>"; };
 		CDECC62D153FBE35005640A7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		CDECC62F153FBE3E005640A7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -161,6 +164,8 @@
 				CDA193B61558DDEB008740BB /* simpleFFT.h */,
 				8AF297FB1559D161005423ED /* graphFFT.h */,
 				8AF297FC1559D161005423ED /* graphFFT.mm */,
+				CDA193B71558DDEB008740BB /* SpectrumAnalysis.cpp */,
+				CDA193B81558DDEB008740BB /* SpectrumAnalysis.h */,
 				8A6E3AA91548D75E0029B431 /* Draw2D.h */,
 				8A6E3AAA1548D75E0029B431 /* Draw2D.m */,
 				CD3371FE153E64DD004CBCCB /* ViewController.xib */,
@@ -318,6 +323,7 @@
 				8AAF9942153F9AD900E0EB75 /* AudioController.mm in Sources */,
 				8A6E3AAB1548D75E0029B431 /* Draw2D.m in Sources */,
 				CDA193B91558DDEB008740BB /* simpleFFT.cpp in Sources */,
+				CDA193BA1558DDEB008740BB /* SpectrumAnalysis.cpp in Sources */,
 				8AF297FD1559D161005423ED /* graphFFT.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

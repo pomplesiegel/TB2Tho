@@ -65,7 +65,12 @@ float xMagnitude[fftLength];
     {
         for(int i=0; i<length; i++)
             x[i] = atanf((ES.gainSliderValue)*x[i]);
+        
+        //NSLog(@"here");
+            
     }
+    
+   // NSLog(@"on or off: %i which effect: %i",ES.effectOnOff,ES.whichEffect);
     
     if(ES.effectOnOff && ES.whichEffect==1) //Effect on, DRAW
     {
@@ -78,23 +83,25 @@ float xMagnitude[fftLength];
         }
        
     }
+        
+    //OUTPUT X IN THE TIME DOMAIN!!!!
     
-    for(int i=0; i<length; i++) //copy for FFT array, and apply Hann window
-        xforFFT[i] = x[i]*(float)((1.-cos(2.*M_PI*(i+.5)/((float)length)))/2.); 
+    //NOW CALCULATE THE FFT, Find its magnitude, AND EVENTUALLY PLOT THE OUTPUT
     
+    for(int i=0; i<length; i++) //copy for FFT array
+        xforFFT[i] = x[i];
     RealFFT_forward(xforFFT, length); //Outputs interleaved real & imaginary components of RH spectrum
     
-    
-    for(int i=0; i<fftLength; i++) //Magnitude by frequency bin
+    for(int i=0; i<fftLength; i++) 
     {
-        xMagnitude[i] = sqrtf(pow(xforFFT[2*i],2) + pow(xforFFT[2*i+1],2))/16; 
+        xMagnitude[i] = sqrtf(pow(xforFFT[2*i],2) + pow(xforFFT[2*i+1],2))/16; //Magnitude by frequency bin
              
     }
-    
     
     for(int i=1; i<fftLength; i++) //normalize xMagnitude based on Fundamental's amplitude;
         xMagnitude[i] = xMagnitude[i]/xMagnitude[1];
         
+ 
 }
 
 -(void)generateSineWave:(float*)x
@@ -105,6 +112,7 @@ float xMagnitude[fftLength];
         x[i] = sinf(2*M_PI*fundamental*((float)i/Fs));
     }
 }
+
 
 
 -(void)setGainValue:(float)val {
