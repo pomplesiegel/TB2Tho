@@ -19,8 +19,6 @@
 {
     [daController setGainValue:[gainSlider value]];
     [fftGraph setGainValue:[gainSlider value]];
-    [fftGraph setNeedsDisplay];
-    [self.view setNeedsDisplay];
 }
 
 //Change the effect's on/off status to match that of the switch
@@ -38,7 +36,7 @@
     [daController setWhichEffect:effectChoice];
     [fftGraph setWhichEffect:effectChoice];
 }
-
+/*
 //Choose the first smoothing method
 -(IBAction)smoothingSwitch1Hit:(id)sender
 {
@@ -50,7 +48,7 @@
 {
     [graphView toggleSmooth2:[sender isOn]];
 }
-
+*/
 -(IBAction)resetCurveHit:(id)sender
 {
     [graphView resetCurve];

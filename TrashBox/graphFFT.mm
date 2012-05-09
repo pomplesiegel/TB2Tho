@@ -13,6 +13,7 @@
 #define fundamental 1 //Funamental tone, in Hz
 #define bitOffset 32768 //offset for 16bit indicies
 #define fftLength (length+2)/2 //NOT FFT SIZE!!!! This is the size of FFT magnitude output vector, for a one-sided spectrum
+#define fftpoints 8
 
 @implementation graphFFT
 
@@ -23,6 +24,10 @@ float x[length]; //Vector for sine values
 float xforFFT[length+2]; //Vector for FFT output
 float xMagnitude[fftLength];
 
+CGContextRef context;
+CGFloat width;
+CGFloat height;
+int divisor;
 
 //take in sine wave, apply gain, apply LUT or Atan, DISPLAY, use FFT, DISPLAY
 
@@ -36,12 +41,11 @@ float xMagnitude[fftLength];
         ES.effectOnOff = 1;
         ES.whichEffect = 0;
         ES.gainSliderValue = .5;
-                      
     }
     return self;
 }
 
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
@@ -50,7 +54,6 @@ float xMagnitude[fftLength];
     height = self.frame.size.height;
     divisor = width / fftpoints;
     context = UIGraphicsGetCurrentContext();
-    
     CGContextSetLineWidth(context, divisor/2.0f);
     CGContextSetStrokeColorWithColor(context,[UIColor redColor].CGColor);
     for(int i=0; i<fftpoints; i++) {
@@ -62,7 +65,6 @@ float xMagnitude[fftLength];
     CGContextStrokePath(context);
 
 }
-*/
 
 -(void)calcFFT
 {
@@ -113,16 +115,7 @@ float xMagnitude[fftLength];
         xMagnitude[i] = xMagnitude[i]/xMagnitude[1];
      
     NSLog(@"Calc FFT");
-    
-    CGContextSetLineWidth(context, divisor/2.0f);
-    CGContextSetStrokeColorWithColor(context,[UIColor redColor].CGColor);
-    for(int i=0; i<fftpoints; i++) {
-        CGFloat vert = width/fftpoints*(i+0.5f);
-        CGContextMoveToPoint(context, vert,height);
-        NSLog(@"mag: %f", xMagnitude[i+1]);
-        CGContextAddLineToPoint(context, vert, height*(1-xMagnitude[i+1]));
-    }
-    CGContextStrokePath(context);
+
     [self setNeedsDisplay];
 }
 
