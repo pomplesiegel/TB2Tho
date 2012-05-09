@@ -107,12 +107,7 @@ graphFFT *FFTview;
             //special x values to allow data points to fall between vertical bars
             CGFloat vert = width/datapoints*(i+0.5f);
             graph[i].x = vert;
-            if(i==0) {
-                graph[i].y = height - (height/width * (i+1) * divisor)*0.5;
-            }
-            else {
-                graph[i].y = height - (height/width * (i+1) * divisor);
-            }
+            graph[i].y = height - height/width * vert;
         }
         //for(int i=0; i<bits16; i++) {
         //    lutfake[i] = i-shift16;
@@ -258,10 +253,12 @@ graphFFT *FFTview;
     //draw final graph
     CGContextMoveToPoint(context, 0.0f, height);
     lut[shift16] = 0.0f;
-    for(int i = 1; i<count; i++)
-    {
+    for(int i = 1; i<count/8;i++) {
+        CGContextAddLineToPoint(context, points[i*8].x, points[i*8].y);
+    }
+    for(int i = 1; i<count; i++) {
         CGFloat y = points[i].y;
-        CGContextAddLineToPoint(context, points[i].x, points[i].y);
+        //CGContextAddLineToPoint(context, points[i].x, points[i].y);
         if(y <= 0.0f) {
             lut[shift16+i] = 1.0f * (MAXVAL-1);
             lut[shift16-i] = -1.0f * MAXVAL;
