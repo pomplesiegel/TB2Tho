@@ -26,20 +26,7 @@ float xforFFT[length+2]; //Vector for FFT output
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
-        //FIX ALL THIS SHIT TO GET THE VALUES
-        
-        float* gainSliderValue = &ES.gainSliderValue;
-       // NSLog(@"gain slider value %f",gainSliderValue);
-        
-    
-
-        
-//        ES.gainSliderValue = .5;  //initial value
-//        ES.effectOnOff = YES;       //initial value
-//        ES.whichEffect = 0;       //initially have "grit" on
-        
-        
+                      
     }
     return self;
 }
@@ -60,8 +47,12 @@ float xforFFT[length+2]; //Vector for FFT output
 {
     [self generateSineWave:x]; //place sine samples in x
     
+   
     for(int i=0; i<length; i++) //copy for FFT array
         xforFFT[i] = x[i];
+    
+    //Modify x based on the current scenario
+    
     
     RealFFT_forward(xforFFT, length); //Outputs interleaved real & imaginary components of RH spectrum
     
@@ -74,7 +65,6 @@ float xforFFT[length+2]; //Vector for FFT output
     for(int i=0; i<length; i++)
     {
         x[i] = sinf(2*M_PI*fundamental*((float)i/Fs));
-
     }
 }
 
