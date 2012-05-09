@@ -11,14 +11,17 @@
 
 
 @implementation ViewController
-@synthesize gainSlider, effectOnOff, smoothing1, smoothing2, resetCurve;
+@synthesize gainSlider, effectOnOff,resetCurve; //smoothing1, smoothing2
 @synthesize whichEffect;
+@synthesize graphView, fftGraph;
 
 //Change the Audio Controller's gain value to be that of the slider
 -(IBAction)sliderChanged:(id)sender
 {
     [daController setGainValue:[gainSlider value]];
     [fftGraph setGainValue:[gainSlider value]];
+    [self.view bringSubviewToFront:fftGraph];
+    [fftGraph setNeedsDisplay];
 }
 
 //Change the effect's on/off status to match that of the switch
