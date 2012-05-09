@@ -10,7 +10,7 @@
 
 //Buncha constants
 #define datapoints 16//16
-#define granularity 2047//2520
+#define granularity 2048//2520
 #define granularity2 15
 #define totalpoints datapoints*granularity
 #define averagepoints 9
@@ -41,10 +41,12 @@ graphFFT *FFTview;
 - (void)toggleSmooth1:(bool)state
 {
     smoothing = state;
+    [self setNeedsDisplay];
 }
 - (void)toggleSmooth2:(bool)state
 {
     smoothing2 = state;
+    [self setNeedsDisplay];
 }
 
 //Gonna have to look in to this; empty if statement
@@ -224,10 +226,6 @@ graphFFT *FFTview;
         points[count] = p2;
         count++;
     }
-    pi.x = width;
-    pi.y = graph[datapoints-1].y;
-    points[count] = pi;
-    count++;
     //NSLog(@"Count = %d", count);
     
     //post-splining smoothing
@@ -270,17 +268,19 @@ graphFFT *FFTview;
             lut[shift16-i] = 0.0f;
         }
         else {
-            lut[shift16+i] = (1 - y / height)*(MAXVAL-1);
-            lut[shift16-i] = (y/height - 1)*MAXVAL;
+            lut[shift16+i] = (1 - y / height)*(MAXVAL-1) - 1024;
+            lut[shift16-i] = (y/height - 1)*MAXVAL + 1024;
         }
         
     }
-    for(int i= count; count<shift16; count++) {
-        lut[shift16+i] = 1.0f * (MAXVAL-1);
-        lut[shift16-i] = -1.0f * MAXVAL;
-    }
     lut[0] = -1.0f * MAXVAL;
     CGContextStrokePath(context);
+    //NSLog(@"Count: %d",count);
+    for(int i = 0; i < bits16/2048; i++) {
+        NSLog(@"fake: %f",lutfake[i*2048]);
+        NSLog(@"real: %f",lut[i*2048]);
+    }
+    
     [FFTview calcFFT];
 }
 
