@@ -111,7 +111,7 @@ CGPoint graph[graphpoints];
     
     CGContextBeginPath(context);
     CGContextSetLineWidth(context, 2.0f);
-    CGContextSetStrokeColorWithColor(context,[UIColor redColor].CGColor);
+    CGContextSetStrokeColorWithColor(context,[UIColor greenColor].CGColor);
     CGContextMoveToPoint(context, 0.0f,height/2.0f);
     for(int i=0; i<count; i++) {
         CGContextAddLineToPoint(context, graph[i].x, graph[i].y);
