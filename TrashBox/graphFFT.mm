@@ -81,7 +81,7 @@ int divisor;
     if(ES.effectOnOff && ES.whichEffect==0) //Effect on, GRIT
     {
         for(int i=0; i<length; i++)
-            x[i] = atanf((ES.gainSliderValue)*x[i]);
+            x[i] = atanf((ES.gainSliderValue)*x[i]/100); //scale down for atan?
                     
     }
     
@@ -123,11 +123,8 @@ int divisor;
         if(x[i] > max) max = x[i];
     for(int i=0; i<length; i++)
         x[i] = x[i]/max;
-    for(int i=0; i<fftLength; i++) 
-    {
-//        xMagnitude[i] = log10(xMagnitude[i]); //Magnitude by frequency bin
-        
-    }
+
+    
 
      
     //NSLog(@"Calc FFT");
