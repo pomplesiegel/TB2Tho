@@ -36,7 +36,7 @@
     [daController setWhichEffect:effectChoice];
     [fftGraph setWhichEffect:effectChoice];
 }
-
+/*
 //Choose the first smoothing method
 -(IBAction)smoothingSwitch1Hit:(id)sender
 {
@@ -48,7 +48,7 @@
 {
     [graphView toggleSmooth2:[sender isOn]];
 }
-
+*/
 -(IBAction)resetCurveHit:(id)sender
 {
     [graphView resetCurve];
@@ -72,7 +72,9 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
     daController = [[AudioController alloc] init];
     graphView = [[Draw2D alloc] init];
+    [self.view addSubview:graphView];
     fftGraph = [[graphFFT alloc] init];
+    [self.view addSubview:fftGraph];
     float *LUTpointer;
     LUTpointer = [graphView getLUTPointer];
     [graphView setFFTPointer:fftGraph];

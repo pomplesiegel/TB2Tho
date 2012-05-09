@@ -58,11 +58,12 @@ graphFFT *FFTview;
 //Gonna have to look in to this; empty if statement
 - (id)initWithFrame:(CGRect)frame
 {
-    smoothing = false;
-    smoothing2 = false;
-    setup = FALSE;
     self = [super initWithFrame:frame];
     if (self) {
+        smoothing = false;
+        smoothing2 = false;
+        setup = FALSE;
+        
         
     }
     return self;
@@ -90,7 +91,6 @@ graphFFT *FFTview;
     height = self.frame.size.height;
     divisor = width / datapoints;
     context = UIGraphicsGetCurrentContext();
-
     //Nice naming convention
     int count = 0;
 
